@@ -12,9 +12,12 @@
 
 .ins-section .ins-section-header,
 .ins-section .ins-search-item {
+    padding: 8px 15px;
+}
+
+.ins-section:last-child > .ins-selectable:last-child {
     border-bottom-left-radius: 18px;
     border-bottom-right-radius: 18px;
-    padding: 8px 15px;
 }
 
 .ins-section .ins-section-header {
