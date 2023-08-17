@@ -41,18 +41,18 @@ a:active {
   -ms-animation-fill-mode: both;
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  -ms-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
+  animation-duration: 0.2s;
 }
 .animated.hinge {
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  -ms-animation-duration: 0.2s;
+  -o-animation-duration: 0.2s;
+  animation-duration: 0.2s;
 }
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
@@ -64,11 +64,11 @@ a:active {
 .content {
   height: auto;
   float: right;
-  width: 76%;
+  width: 79%;
   margin-top: 60px;
 }
 .page-top {
-  width: 76%;
+  width: 79%;
   position: fixed;
   right: 0;
   z-index: 3;
@@ -121,7 +121,7 @@ a:active {
   padding-right: 40px;
 }
 .sidebar {
-  width: 24%;
+  width: 21%;
   -webkit-background-size: cover;
   background-size: cover;
   background-color: #fff;
@@ -412,7 +412,7 @@ a:active {
 }
 /* share */
 .share {
-  margin: 0px 30px;
+  margin: 0 30px;
   display: inline-flex;
 }
 .evernote {

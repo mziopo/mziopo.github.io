@@ -1,6 +1,8 @@
 .ins-section-container {
     position: relative;
     background: #f7f7f7;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
 }
 
 .ins-section {
