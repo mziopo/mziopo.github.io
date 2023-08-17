@@ -79,6 +79,7 @@
     bottom: 100px;
     margin-left: -270px;
     box-sizing: border-box;
+    border-radius: 18px;
 }
 
 @media screen and (max-width: 559px), screen and (max-height: 479px) {
