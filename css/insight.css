@@ -12,6 +12,8 @@
 
 .ins-section .ins-section-header,
 .ins-section .ins-search-item {
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
     padding: 8px 15px;
 }
 
