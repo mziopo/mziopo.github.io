@@ -385,6 +385,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 </tr>
 </tbody>
 </table>
+<hr>
 <h3 id="CMD-和-ENTRYPOINT-区别">CMD 和 ENTRYPOINT 区别</h3>
 <p>两者都是设置某容器启动时要执行的命令</p>
 <p>举例如下：</p>
@@ -392,9 +393,10 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Dockerfile</span></span><br><span class="line">FROM centos</span><br><span class="line">CMD [<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-a&quot;</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build .</span><br><span class="line">docker run <span class="variable">$container</span> -l</span><br></pre></td></tr></table></figure>
 <p><u>CMD</u></p>
-<p>会报错，因为 <code>ls -a</code> 被替换成了 <code>-</code>l</p>
+<p>会报错，因为 <code>ls -a</code> 被替换成了 <code>-l</code></p>
 <p><u>ENTRYPOINT</u></p>
 <p>无报错，可以正常打印当前目录信息，因为 <code>ls -a</code> 被追加成了 <code>ls -la</code></p>
+<hr>
 <h3 id="Dockerfile-例子">Dockerfile 例子</h3>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line">CMD [<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-a&quot;</span>]</span><br></pre></td></tr></table></figure>
 </p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Docker/" title="Docker">Docker </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Docker/" title="Docker">Docker </a><span class="leancloud_visitors"></span><span>About 494 words, 1 min 38 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/hexo-init/">通过 GitHub 搭建个人博客 Hexo</a></h3></div><div class="post-content"><div class="card"><p><hr>
