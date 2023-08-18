@@ -268,7 +268,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <ul>
 <li>Token 机制</li>
 <li>去重表</li>
-<li>利用 Redis 的 setnx</li>
+<li>利用 <code>Redis</code>  <code>setnx</code></li>
 <li>设置状态字段</li>
 <li>上锁</li>
 </ul>
@@ -279,7 +279,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 </ol>
 <hr>
 <h2 id="2-接口限流">2.接口限流</h2>
-<p>推荐成熟方案 Alibaba 的 Sentinel</p>
+<p>推荐成熟方案 <code>Alibaba Sentinel</code></p>
 <p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -309,7 +309,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 </ol>
 <hr>
 <h2 id="5-方法权限处理">5.方法权限处理</h2>
-<p>推荐成熟方案 Spring Security</p>
+<p>推荐成熟方案 <code>Spring Security</code></p>
 <p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -319,7 +319,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <hr>
 <h2 id="6-事务处理">6.事务处理</h2>
 <p>Spring提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 743 words, 2 min 28 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/docker/">Docker 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 741 words, 2 min 28 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/docker/">Docker 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Docker学习笔记</p>
 <hr>
@@ -339,22 +339,71 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <h2 id="运行挂载容器卷">运行挂载容器卷</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v <span class="variable">$name</span>:/etc/nginx:ro nginx --volumes-from mysql</span><br></pre></td></tr></table></figure>
 <p>具名挂载：默认目录 /var/lib/docker/volumes/$name/_data</p>
-<p>匿名挂载：不填$name:</p>
-<p>:ro readonly 只能容器外部修改</p>
-<p>:rw readwrite</p>
-<p>–volumes-from 跟随挂载 例子可以实现多个mysql容器数据同步</p>
+<p>匿名挂载：不填<code>$name</code>:</p>
+<p><code>:ro</code> readonly 只能容器外部修改</p>
+<p><code>:rw</code> readwrite</p>
+<p><code>--volumes-from</code> 跟随挂载 例子可以实现多个mysql容器数据同步</p>
 <hr>
 <h2 id="docker-inspect-container">docker inspect $container</h2>
 <p>信息</p>
 <hr>
+<h2 id="docker-history-image">docker history $image</h2>
+<p>查看镜像历史构建步骤</p>
+<hr>
 <h2 id="Dockerfile">Dockerfile</h2>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Docker/" title="Docker">Docker </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Docker/" title="Docker">Docker </a><span class="leancloud_visitors"></span><span>About 298 words, 59 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/hexo-init/">通过 GitHub 搭建个人博客 Hexo</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADD</td>
+<td>添加文件进去</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>添加文件进去</td>
+</tr>
+<tr>
+<td>RUN</td>
+<td>镜像构建时运行的命令</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>容器启动时运行的命令，会被外部参数替换</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>容器启动时运行的命令，可以追加</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>构建时设置环境变量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="CMD-和-ENTRYPOINT-区别">CMD 和 ENTRYPOINT 区别</h3>
+<p>两者都是设置某容器启动时要执行的命令</p>
+<p>举例如下：</p>
+<p>构建centos镜像，打印当前目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Dockerfile</span></span><br><span class="line">FROM centos</span><br><span class="line">CMD [<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-a&quot;</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build .</span><br><span class="line">docker run <span class="variable">$container</span> -l</span><br></pre></td></tr></table></figure>
+<p><u>CMD</u></p>
+<p>会报错，因为 <code>ls -a</code> 被替换成了 <code>-</code>l</p>
+<p><u>ENTRYPOINT</u></p>
+<p>无报错，可以正常打印当前目录信息，因为 <code>ls -a</code> 被追加成了 <code>ls -la</code></p>
+<h3 id="Dockerfile-例子">Dockerfile 例子</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line">CMD [<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-a&quot;</span>]</span><br></pre></td></tr></table></figure>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Docker/" title="Docker">Docker </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Docker/" title="Docker">Docker </a><span class="leancloud_visitors"></span><span>About 494 words, 1 min 38 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/hexo-init/">通过 GitHub 搭建个人博客 Hexo</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
 </blockquote>
-<p>安装之前确认好要安装的Hexo版本所对应的Node最低需求</p>
-<p>例如 Hexo 6.3.0 最低支持 node14 构建</p>
+<p>安装之前确认好要安装的<code>Hexo</code>版本所对应的<code>Node</code>最低需求</p>
+<p>例如 <code>Hexo 6.3.0</code> 最低支持 <code>node14</code> 构建</p>
 <!--suppress HtmlUnknownTarget -->
 <img src="/images/hexo-init-001.png" alt="image-20230817154901378" style="zoom:67%" />
 <blockquote>
@@ -369,17 +418,17 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <hr>
 <h2 id="本地运行">本地运行</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>访问 localhost:4000</p>
+<p>访问 <code>localhost:4000</code></p>
 <hr>
 <h2 id="部署">部署</h2>
 <p>部署到 GitHub Pages</p>
-<p>修改 _config.yml 替换添加如下</p>
+<p>修改 <code>_config.yml</code> 替换添加如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:$username/$username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>最后执行三连。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<p>访问 $<a target="_blank" rel="noopener" href="http://username.github.io">username.github.io</a></p>
-<p>仓库名称需要设置成$username.github.io的格式</p>
+<p>访问 <code>$username.github.io</code></p>
+<p>仓库名称需要设置成<code>$username.github.io</code>的格式</p>
 </p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Windows环境，生成及配置非默认、具有别名的SSH keys。</p>

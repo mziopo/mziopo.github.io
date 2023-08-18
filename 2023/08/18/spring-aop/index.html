@@ -25,7 +25,7 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 <ul>
 <li>Token 机制</li>
 <li>去重表</li>
-<li>利用 Redis 的 setnx</li>
+<li>利用 <code>Redis</code>  <code>setnx</code></li>
 <li>设置状态字段</li>
 <li>上锁</li>
 </ul>
@@ -36,7 +36,7 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 </ol>
 <hr>
 <h2 id="2-接口限流">2.接口限流</h2>
-<p>推荐成熟方案 Alibaba 的 Sentinel</p>
+<p>推荐成熟方案 <code>Alibaba Sentinel</code></p>
 <p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -66,7 +66,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 </ol>
 <hr>
 <h2 id="5-方法权限处理">5.方法权限处理</h2>
-<p>推荐成熟方案 Spring Security</p>
+<p>推荐成熟方案 <code>Spring Security</code></p>
 <p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -76,7 +76,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <hr>
 <h2 id="6-事务处理">6.事务处理</h2>
 <p>Spring提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
-</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 743 words, 2 min 28 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://example.com/2023/08/18/spring-aop/,Every,Spring AOP 笔记,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/design-model/" title="设计模式笔记">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/docker/" title="Docker 笔记">Next</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
+</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 741 words, 2 min 28 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://example.com/2023/08/18/spring-aop/,Every,Spring AOP 笔记,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/design-model/" title="设计模式笔记">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/docker/" title="Docker 笔记">Next</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
   el:'#vcomments',
   notify:false || false, 
   verify:false|| false, 
