@@ -85,7 +85,6 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <li>getSingleton()过程图</li>
 </ul>
 <p>ps：spring依赖注入时，使用了 双重判断加锁 的单例模式</p>
-<p><img src="C:%5CUsers%5Colive%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230818154018698.png" alt="image-20230818154018698"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">s[[singletonObjects +getBeanName&lt;&gt;]] ==&gt;</span><br><span class="line">e[[earlySingletonObjects +getBeanName&lt;&gt;]] ==&gt;</span><br><span class="line">f[[singletonFactories +getObject&lt;&gt;]] ==&gt;</span><br><span class="line">创[[创建单例实例]] ===&gt;|remove|f</span><br><span class="line">创 ==&gt;|put|e</span><br></pre></td></tr></table></figure>
 <h3 id="b-style-color-skyblue-总结：-b"><b style="color:skyblue">总结：</b></h3>
 <p><strong>单例模式定义</strong>： 保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
