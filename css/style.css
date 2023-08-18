@@ -135,7 +135,6 @@ a:active {
 }
 .sidebar .logo-title {
   text-align: center;
-  margin-top: -50px;
 }
 .sidebar .logo-title .description {
   font-size: 14px;
@@ -638,11 +637,12 @@ a.btn {
 .toclist {
 /* width: max-content; */
   border-top: none;
-  padding: 0px 30px;
+  margin: 0 !important;
+  padding: 0 30px;
   display: inline-block;
   text-align: left;
   overflow-y: auto;
-  max-height: 250px;
+  max-height: 370px;
 }
 .toclist::-webkit-scrollbar {
   width: 2px;

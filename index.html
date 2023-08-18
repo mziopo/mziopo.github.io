@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Every</title><meta name="description" content="浮生一薤露，蜗角争是非"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><i class="fa fa-star"></i><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/vm-ubuntu/">Windows环境VM中安装Ubuntu 23.04</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Every</title><meta name="description" content="浮生一薤露，蜗角争是非"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/vm-ubuntu/">Windows环境VM中安装Ubuntu 23.04</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="准备镜像">准备镜像</h2>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
@@ -58,23 +58,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run</span></span><br><span class="line">docker run --name nacos --restart=always -d -p 8848:8848 nacos</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ufw</span></span><br><span class="line">sudo ufw allow proto tcp from 192.168.58.1/24 to any port 8848</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl</span></span><br><span class="line">curl localhost:8848/nacos</span><br></pre></td></tr></table></figure></p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Ubuntu/" title="Ubuntu">Ubuntu </a><a class="tag" href="/categories/Ubuntu/VM/" title="VM">VM </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Ubuntu/" title="Ubuntu">Ubuntu </a><i class="fa fa-tag"></i><a class="tag" href="/tags/VM/" title="VM">VM </a><span class="leancloud_visitors"></span><span>About 268 words, 53 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/design-model/">设计模式笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
-<h3 id="目录">目录</h3>
-<ul>
-<li>简单工厂(非23种设计模式中的一种)</li>
-<li>工厂方法</li>
-<li>单例模式</li>
-<li>适配器模式</li>
-<li>装饰器模式</li>
-<li>代理模式</li>
-<li>观察者模式</li>
-<li>策略模式</li>
-<li>模版方法模式</li>
-</ul>
-<hr>
 <blockquote>
 <p>Spring中涉及的设计模式总结</p>
 </blockquote>
-<h2 id="1-简单工厂-非23种设计模式中的一种">1.简单工厂(非23种设计模式中的一种)</h2>
+<h2 id="简单工厂-非23种设计模式中的一种">简单工厂(非23种设计模式中的一种)</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b"><b style="color:skyblue">实现方式：</b></h3>
 <p>BeanFactory。Spring中的BeanFactory就是简单工厂模式的体现，根据传入一个唯一的标识来获得Bean对象，但是否是在传入参数后创建还是传入参数前创建这个要根据具体情况来定。</p>
 <h3 id="b-style-color-skyblue-实质：-b"><b style="color:skyblue">实质：</b></h3>
@@ -101,7 +88,7 @@
 <p><strong>bean的额外处理。</strong><br>
 通过Spring接口的暴露，在实例化bean的阶段我们可以进行一些额外的处理，这些额外的处理只需要让bean实现对应的接口即可，那么spring就会在bean的生命周期调用我们实现的接口来处理该bean。[非常重要]</p>
 <hr>
-<h2 id="2-工厂方法">2.工厂方法</h2>
+<h2 id="工厂方法">工厂方法</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b-2"><b style="color:skyblue">实现方式：</b></h3>
 <p>FactoryBean接口。</p>
 <h3 id="b-style-color-skyblue-实现原理：-b-2"><b style="color:skyblue">实现原理：</b></h3>
@@ -115,7 +102,7 @@
 <p>我们看上面该bean，因为实现了FactoryBean接口，所以返回的不是 SqlSessionFactoryBean 的实例，而是它的<br>
 SqlSessionFactoryBean.getObject() 的返回值。</p>
 <hr>
-<h2 id="3-单例模式">3.单例模式</h2>
+<h2 id="单例模式">单例模式</h2>
 <ul>
 <li>Spring依赖注入Bean实例默认是单例的。</li>
 <li>Spring的依赖注入（包括lazy-init方式）都是发生在AbstractBeanFactory的getBean里。getBean的doGetBean方法调用getSingleton进行bean的创建。</li>
@@ -131,7 +118,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <p><strong>单例模式定义</strong>： 保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
 <p><strong>spring对单例的实现</strong>： spring中的单例模式完成了后半句话，即提供了全局的访问点BeanFactory。但没有从构造器级别去控制单例，这是因为spring管理的是任意的java对象。</p>
 <hr>
-<h2 id="4-适配器模式">4.适配器模式</h2>
+<h2 id="适配器模式">适配器模式</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b-3"><b style="color:skyblue">实现方式：</b></h3>
 <p>SpringMVC中的适配器HandlerAdatper。</p>
 <h3 id="b-style-color-skyblue-实现原理：-b-3"><b style="color:skyblue">实现原理：</b></h3>
@@ -143,14 +130,14 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <p>HandlerAdatper使得Handler的扩展变得容易，只需要增加一个新的Handler和一个对应的HandlerAdapter即可。</p>
 <p>因此Spring定义了一个适配接口，使得每一种Controller有一种对应的适配器实现类，让适配器代替controller执行相应的方法。这样在扩展Controller时，只需要增加一个适配器类就完成了SpringMVC的扩展了。</p>
 <hr>
-<h2 id="5-装饰器模式">5.装饰器模式</h2>
+<h2 id="装饰器模式">装饰器模式</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b-4"><b style="color:skyblue">实现方式：</b></h3>
 <p>Spring中用到的包装器模式在类名上有两种表现：一种是类名中含有Wrapper，另一种是类名中含有Decorator。</p>
 <h3 id="b-style-color-skyblue-实质：-b-2"><b style="color:skyblue">实质：</b></h3>
 <p>动态地给一个对象添加一些额外的职责。</p>
 <p>就增加功能来说，Decorator模式相比生成子类更为灵活。</p>
 <hr>
-<h2 id="6-代理模式">6.代理模式</h2>
+<h2 id="代理模式">代理模式</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b-5"><b style="color:skyblue">实现方式：</b></h3>
 <p>AOP底层，就是动态代理模式的实现。</p>
 <ul>
@@ -161,7 +148,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <p>切面在应用运行的时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象创建动态的创建一个代理对象。SpringAOP就是以这种方式织入切面的。</p>
 <p>织入：把切面应用到目标对象并创建新的代理对象的过程。</p>
 <hr>
-<h2 id="7-观察者模式">7.观察者模式</h2>
+<h2 id="观察者模式">观察者模式</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b-6"><b style="color:skyblue">实现方式：</b></h3>
 <p>spring的事件驱动模型使用的是 观察者模式 ，Spring中Observer模式常用的地方是listener的实现。</p>
 <h3 id="b-style-color-skyblue-具体实现：-b"><b style="color:skyblue">具体实现：</b></h3>
@@ -196,7 +183,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AbstractApplicationContext</span> <span class="keyword">extends</span> <span class="title class_">DefaultResourceLoader</span></span><br><span class="line">  <span class="keyword">implements</span> <span class="title class_">ConfigurableApplicationContext</span>, DisposableBean &#123;</span><br><span class="line">  <span class="keyword">private</span> ApplicationEventMulticaster applicationEventMulticaster;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">registerListeners</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// Register statically specified listeners first.</span></span><br><span class="line">    <span class="keyword">for</span> (ApplicationListener&lt;?&gt; listener : getApplicationListeners()) &#123;</span><br><span class="line">      getApplicationEventMulticaster().addApplicationListener(listener);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Do not initialize FactoryBeans here: We need to leave all regular beans</span></span><br><span class="line">    <span class="comment">// uninitialized to let post-processors apply to them!</span></span><br><span class="line">    String[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, <span class="literal">true</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">for</span> (String lisName : listenerBeanNames) &#123;</span><br><span class="line">      getApplicationEventMulticaster().addApplicationListenerBean(lisName);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="8-策略模式">8.策略模式</h2>
+<h2 id="策略模式">策略模式</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b-7"><b style="color:skyblue">实现方式：</b></h3>
 <p>Spring框架的资源访问Resource接口。该接口提供了更强的资源访问能力，Spring 框架本身大量使用了 Resource 接口来访问底层资源。</p>
 <h3 id="b-style-color-skyblue-Resource-接口介绍-b"><b style="color:skyblue">Resource 接口介绍</b></h3>
@@ -224,7 +211,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 这些 Resource 实现类，针对不同的的底层资源，提供了相应的资源访问逻辑，并提供便捷的包装，以利于客户端程序的资源访问。</li>
 </ul>
 <hr>
-<h2 id="9-模版方法模式">9.模版方法模式</h2>
+<h2 id="模版方法模式">模版方法模式</h2>
 <h3 id="b-style-color-skyblue-经典模板方法定义：-b"><b style="color:skyblue">经典模板方法定义：</b></h3>
 <p>父类定义了骨架（调用哪些方法及顺序），某些特定方法由子类实现。</p>
 <p>最大的好处：代码复用，减少重复代码。除了子类要实现的特定方法，其他方法及方法调用顺序都在父类中预先写好了。</p>
@@ -250,7 +237,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <p>因为这个类的方法太多，但是我们还是想用到JdbcTemplate已有的稳定的、公用的数据库连接，那么我们怎么办呢？</p>
 <p>我们可以把变化的东西抽出来作为一个参数传入JdbcTemplate的方法中。但是变化的东西是一段代码，而且这段代码会用到JdbcTemplate中的变量。怎么办？</p>
 <p>那我们就用回调对象吧。在这个回调对象中定义一个操纵JdbcTemplate中变量的方法，我们去实现这个方法，就把变化的东西集中到这里了。然后我们再传入这个回调对象到JdbcTemplate，从而完成了调用。</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/设计模式/" title="设计模式">设计模式 </a><i class="fa fa-tag"></i><a class="tag" href="/tags/设计模式/" title="设计模式">设计模式 </a><span class="leancloud_visitors"></span><span>About 3701 words, 12 min 20 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/spring-aop/">Spring AOP 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/设计模式/" title="设计模式">设计模式 </a><i class="fa fa-tag"></i><a class="tag" href="/tags/设计模式/" title="设计模式">设计模式 </a><span class="leancloud_visitors"></span><span>About 3648 words, 12 min 9 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/spring-aop/">Spring AOP 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <blockquote>
 <p>AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的组合，就是自定义注解+AOP。</p>
@@ -264,7 +251,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <li>拦截下来之后，前置通知、后置通知、异常通知、返回通知还是环绕通知。</li>
 </ol>
 <hr>
-<h2 id="1-幂等性处理">1.幂等性处理</h2>
+<h2 id="幂等性处理">幂等性处理</h2>
 <ul>
 <li>Token 机制</li>
 <li>去重表</li>
@@ -278,7 +265,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <li>定义环绕通知，在环绕通知中，先通过上述五种思路中的任意一种，对方法执行的幂等性进行判断。</li>
 </ol>
 <hr>
-<h2 id="2-接口限流">2.接口限流</h2>
+<h2 id="接口限流">接口限流</h2>
 <p>推荐成熟方案 <a href="">Alibaba Sentinel</a></p>
 <p>思路大致如下：</p>
 <ol>
@@ -287,10 +274,10 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <li>自定义切点，拦截到方法之后，在环绕通知中，可以通过 Redis 插件 redis-cell、通过漏斗算法去处理限流。</li>
 </ol>
 <hr>
-<h2 id="3-日志处理">3.日志处理</h2>
+<h2 id="日志处理">日志处理</h2>
 <p>AOP经典例子</p>
 <hr>
-<h2 id="4-多数据源处理">4.多数据源处理</h2>
+<h2 id="多数据源处理">多数据源处理</h2>
 <p>自定义多数据源：</p>
 <blockquote>
 <p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key<br>
@@ -308,7 +295,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <li>自定义切点，拦截到方法之后，在环绕通知中，根据注解中的配置，重新设置要执行的数据源。</li>
 </ol>
 <hr>
-<h2 id="5-方法权限处理">5.方法权限处理</h2>
+<h2 id="方法权限处理">方法权限处理</h2>
 <p>推荐成熟方案 <a href="">Spring Security</a></p>
 <p>思路大致如下：</p>
 <ol>
@@ -317,7 +304,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <li>自定义切点，拦截到方法之后，在环绕通知中，根据注解中的配置，查询处理权限。</li>
 </ol>
 <hr>
-<h2 id="6-事务处理">6.事务处理</h2>
+<h2 id="事务处理">事务处理</h2>
 <p>Spring 提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
 </p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 741 words, 2 min 28 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/docker/">Docker 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
@@ -431,7 +418,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>访问 <code>$username.github.io</code></p>
 <p>仓库名称需要设置成 <code>$username.github.io</code> 的格式</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Windows环境，生成及配置非默认、具有别名的SSH keys。</p>
 <blockquote>
