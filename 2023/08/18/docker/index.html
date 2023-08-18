@@ -72,7 +72,7 @@ docker pull $image
 <h3 id="CMD-和-ENTRYPOINT-区别">CMD 和 ENTRYPOINT 区别</h3>
 <p>两者都是设置某容器启动时要执行的命令</p>
 <p>举例如下：</p>
-<p>构建centos镜像，打印当前目录</p>
+<p>构建 centos 镜像，打印当前目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Dockerfile</span></span><br><span class="line">FROM centos</span><br><span class="line">CMD [<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-a&quot;</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build .</span><br><span class="line">docker run <span class="variable">$container</span> -l</span><br></pre></td></tr></table></figure>
 <p><u>CMD</u></p>

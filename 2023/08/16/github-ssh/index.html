@@ -24,14 +24,14 @@ G"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, m
 <p>具体原因看README。</p>
 <hr>
 <h2 id="配置-Config-文件">配置 Config 文件</h2>
-<p>ssh-agent &amp; ssh-add 我实践配置只在当前窗口生效，</p>
+<p><code>ssh-agent &amp; ssh-add</code> 我实践配置只在当前窗口生效，</p>
 <blockquote>
 <p>$ eval “$(ssh-agent -s)”<br>
 Agent pid 555<br>
 ssh-add ~/.ssh/github_olive</p>
 </blockquote>
-<p>所以目前选择配置SSH Config文件</p>
-<p>config文件位置及内容如下</p>
+<p>所以目前选择配置 SSH Config 文件</p>
+<p>config 文件位置及内容如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\olive\.ssh</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43                 1 config</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43               411 github_olive</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43                98 github_olive.pub</span></span><br><span class="line">vim config</span><br><span class="line"><span class="comment"># Host github.com</span></span><br><span class="line"><span class="comment"># HostName github.com</span></span><br><span class="line"><span class="comment"># PreferredAuthentications publickey</span></span><br><span class="line"><span class="comment"># IdentityFile ~/.ssh/github_olive</span></span><br></pre></td></tr></table></figure>
 <p>再次测试是否授权</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T <span class="string">&quot;git@github.com&quot;</span></span><br><span class="line"><span class="comment"># Hi olive! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>

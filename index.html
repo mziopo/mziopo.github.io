@@ -268,7 +268,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <ul>
 <li>Token 机制</li>
 <li>去重表</li>
-<li>利用 <code>Redis</code>  <code>setnx</code></li>
+<li>利用 Redis  <code>setnx</code></li>
 <li>设置状态字段</li>
 <li>上锁</li>
 </ul>
@@ -279,7 +279,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 </ol>
 <hr>
 <h2 id="2-接口限流">2.接口限流</h2>
-<p>推荐成熟方案 <code>Alibaba Sentinel</code></p>
+<p>推荐成熟方案 <a href="">Alibaba Sentinel</a></p>
 <p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -309,7 +309,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 </ol>
 <hr>
 <h2 id="5-方法权限处理">5.方法权限处理</h2>
-<p>推荐成熟方案 <code>Spring Security</code></p>
+<p>推荐成熟方案 <a href="">Spring Security</a></p>
 <p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -318,7 +318,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 </ol>
 <hr>
 <h2 id="6-事务处理">6.事务处理</h2>
-<p>Spring提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
+<p>Spring 提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
 </p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 741 words, 2 min 28 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/docker/">Docker 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Docker学习笔记</p>
@@ -389,7 +389,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <h3 id="CMD-和-ENTRYPOINT-区别">CMD 和 ENTRYPOINT 区别</h3>
 <p>两者都是设置某容器启动时要执行的命令</p>
 <p>举例如下：</p>
-<p>构建centos镜像，打印当前目录</p>
+<p>构建 centos 镜像，打印当前目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Dockerfile</span></span><br><span class="line">FROM centos</span><br><span class="line">CMD [<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-a&quot;</span>]</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build .</span><br><span class="line">docker run <span class="variable">$container</span> -l</span><br></pre></td></tr></table></figure>
 <p><u>CMD</u></p>
@@ -404,8 +404,8 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
 </blockquote>
-<p>安装之前确认好要安装的<code>Hexo</code>版本所对应的<code>Node</code>最低需求</p>
-<p>例如 <code>Hexo 6.3.0</code> 最低支持 <code>node14</code> 构建</p>
+<p>安装之前确认好要安装的 Hexo 版本所对应的 Node 最低需求</p>
+<p>例如 <code>Hexo 6.3.0</code> 最低支持 <code>node 14</code> 构建</p>
 <!--suppress HtmlUnknownTarget -->
 <img src="/images/hexo-init-001.png" alt="image-20230817154901378" style="zoom:67%" />
 <blockquote>
@@ -420,7 +420,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <hr>
 <h2 id="本地运行">本地运行</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>访问 <code>localhost:4000</code></p>
+<p>访问 localhost:4000</p>
 <hr>
 <h2 id="部署">部署</h2>
 <p>部署到 GitHub Pages</p>
@@ -430,8 +430,8 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <p>最后执行三连。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>访问 <code>$username.github.io</code></p>
-<p>仓库名称需要设置成<code>$username.github.io</code>的格式</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<p>仓库名称需要设置成 <code>$username.github.io</code> 的格式</p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Windows环境，生成及配置非默认、具有别名的SSH keys。</p>
 <blockquote>
@@ -450,14 +450,14 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <p>具体原因看README。</p>
 <hr>
 <h2 id="配置-Config-文件">配置 Config 文件</h2>
-<p>ssh-agent &amp; ssh-add 我实践配置只在当前窗口生效，</p>
+<p><code>ssh-agent &amp; ssh-add</code> 我实践配置只在当前窗口生效，</p>
 <blockquote>
 <p>$ eval “$(ssh-agent -s)”<br>
 Agent pid 555<br>
 ssh-add ~/.ssh/github_olive</p>
 </blockquote>
-<p>所以目前选择配置SSH Config文件</p>
-<p>config文件位置及内容如下</p>
+<p>所以目前选择配置 SSH Config 文件</p>
+<p>config 文件位置及内容如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\olive\.ssh</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43                 1 config</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43               411 github_olive</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43                98 github_olive.pub</span></span><br><span class="line">vim config</span><br><span class="line"><span class="comment"># Host github.com</span></span><br><span class="line"><span class="comment"># HostName github.com</span></span><br><span class="line"><span class="comment"># PreferredAuthentications publickey</span></span><br><span class="line"><span class="comment"># IdentityFile ~/.ssh/github_olive</span></span><br></pre></td></tr></table></figure>
 <p>再次测试是否授权</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T <span class="string">&quot;git@github.com&quot;</span></span><br><span class="line"><span class="comment"># Hi olive! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
