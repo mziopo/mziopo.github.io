@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Spring AOP 笔记 · Every</title><meta name="description" content="README
+
 AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的组合，就是自定义注解+AOP。
 
 
@@ -6,8 +7,9 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 
 
 首先，自定义一个注解。
-定义 AOP 切面，在切面中，定义切点和通知，切点，也就是方法的拦截规则，我们可以按照注解来拦截，也就是某一个带有自定"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><i class="fa fa-star"></i><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Spring AOP 笔记</a></h3></div><div class="post-content"><p><hr>
-<h2 id="README"><a href="#README" class="headerlink" title="README"></a>README</h2><blockquote>
+定义 AOP 切面，在切面中，定义切点和通知，切点，也就是方法的拦截规则，我们可以按照注解来拦截，也就是某一个带有自"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><i class="fa fa-star"></i><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Spring AOP 笔记</a></h3></div><div class="post-content"><p><hr>
+<h2 id="README">README</h2>
+<blockquote>
 <p>AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的组合，就是自定义注解+AOP。</p>
 </blockquote>
 <blockquote>
@@ -19,7 +21,8 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 <li>拦截下来之后，前置通知、后置通知、异常通知、返回通知还是环绕通知。</li>
 </ol>
 <hr>
-<h2 id="1-幂等性处理"><a href="#1-幂等性处理" class="headerlink" title="1.幂等性处理"></a>1.幂等性处理</h2><ul>
+<h2 id="1-幂等性处理">1.幂等性处理</h2>
+<ul>
 <li>Token 机制</li>
 <li>去重表</li>
 <li>利用 Redis 的 setnx</li>
@@ -32,7 +35,8 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 <li>定义环绕通知，在环绕通知中，先通过上述五种思路中的任意一种，对方法执行的幂等性进行判断。</li>
 </ol>
 <hr>
-<h2 id="2-接口限流"><a href="#2-接口限流" class="headerlink" title="2.接口限流"></a>2.接口限流</h2><p>推荐成熟方案 Alibaba 的 Sentinel</p>
+<h2 id="2-接口限流">2.接口限流</h2>
+<p>推荐成熟方案 Alibaba 的 Sentinel</p>
 <p>如果自己写？思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -40,13 +44,18 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 <li>自定义切点，拦截到方法之后，在环绕通知中，可以通过 Redis 插件 redis-cell、通过漏斗算法去处理限流。</li>
 </ol>
 <hr>
-<h2 id="3-日志处理"><a href="#3-日志处理" class="headerlink" title="3.日志处理"></a>3.日志处理</h2><p>AOP经典例子</p>
+<h2 id="3-日志处理">3.日志处理</h2>
+<p>AOP经典例子</p>
 <hr>
-<h2 id="4-多数据源处理"><a href="#4-多数据源处理" class="headerlink" title="4.多数据源处理"></a>4.多数据源处理</h2><p>自定义多数据源：</p>
+<h2 id="4-多数据源处理">4.多数据源处理</h2>
+<p>自定义多数据源：</p>
 <blockquote>
-<p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key<br>值来动态切换到真正的 DataSource 上。</p>
+<p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key<br>
+值来动态切换到真正的 DataSource 上。</p>
 <blockquote>
-<p>大致的用法是提前准备好各种数据源，存入到一个 Map 中，Map 的 key 就是这个数据源的名字，Map 的 value 就是这个具体的数据源，然后再把这个<br>Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查询的时候，拿一个 key 出来，AbstractRoutingDataSource<br>会找到具体的数据源去执行这次数据库操作。</p>
+<p>大致的用法是提前准备好各种数据源，存入到一个 Map 中，Map 的 key 就是这个数据源的名字，Map 的 value 就是这个具体的数据源，然后再把这个<br>
+Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查询的时候，拿一个 key 出来，AbstractRoutingDataSource<br>
+会找到具体的数据源去执行这次数据库操作。</p>
 </blockquote>
 </blockquote>
 <p>思路大致如下：</p>
@@ -56,7 +65,8 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 <li>自定义切点，拦截到方法之后，在环绕通知中，根据注解中的配置，重新设置要执行的数据源。</li>
 </ol>
 <hr>
-<h2 id="5-方法权限处理"><a href="#5-方法权限处理" class="headerlink" title="5.方法权限处理"></a>5.方法权限处理</h2><p>推荐成熟方案 Spring Security</p>
+<h2 id="5-方法权限处理">5.方法权限处理</h2>
+<p>推荐成熟方案 Spring Security</p>
 <p>如果自己写？思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
@@ -64,7 +74,8 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 <li>自定义切点，拦截到方法之后，在环绕通知中，根据注解中的配置，查询处理权限。</li>
 </ol>
 <hr>
-<h2 id="6-事务处理"><a href="#6-事务处理" class="headerlink" title="6.事务处理"></a>6.事务处理</h2><p>Spring提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
+<h2 id="6-事务处理">6.事务处理</h2>
+<p>Spring提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
 </p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 755 words, 2 min 31 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://example.com/2023/08/18/spring-aop/,Every,Spring AOP 笔记,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/design-model/" title="设计模式笔记">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/docker/" title="Docker 笔记">Next</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
   el:'#vcomments',
   notify:false || false, 

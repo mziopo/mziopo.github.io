@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>设计模式笔记 · Every</title><meta name="description" content="目录
+
 简单工厂(非23种设计模式中的一种)
 工厂方法
 单例模式
@@ -13,8 +14,11 @@
 
 Spring中涉及的设计模式总结
 
-1.简单工厂(非23种设计模式中的一种)实现方式：BeanFactory。Spring中的BeanFactory就是简单工厂"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><i class="fa fa-star"></i><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>设计模式笔记</a></h3></div><div class="post-content"><p><hr>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
+1.简单工厂(非23种设计模式中的一种)
+实现方式：
+BeanFactory。Spring中的BeanFactory就是简"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><i class="fa fa-star"></i><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>设计模式笔记</a></h3></div><div class="post-content"><p><hr>
+<h3 id="目录">目录</h3>
+<ul>
 <li>简单工厂(非23种设计模式中的一种)</li>
 <li>工厂方法</li>
 <li>单例模式</li>
@@ -29,13 +33,18 @@ Spring中涉及的设计模式总结
 <blockquote>
 <p>Spring中涉及的设计模式总结</p>
 </blockquote>
-<h2 id="1-简单工厂-非23种设计模式中的一种"><a href="#1-简单工厂-非23种设计模式中的一种" class="headerlink" title="1.简单工厂(非23种设计模式中的一种)"></a>1.简单工厂(非23种设计模式中的一种)</h2><h3 id="实现方式："><a href="#实现方式：" class="headerlink" title="实现方式："></a><b style="color:skyblue">实现方式：</b></h3><p>BeanFactory。Spring中的BeanFactory就是简单工厂模式的体现，根据传入一个唯一的标识来获得Bean对象，但是否是在传入参数后创建还是传入参数前创建这个要根据具体情况来定。</p>
-<h3 id="实质："><a href="#实质：" class="headerlink" title="实质："></a><b style="color:skyblue">实质：</b></h3><p>由一个工厂类根据传入的参数，动态决定应该创建哪一个产品类。</p>
-<h3 id="实现原理："><a href="#实现原理：" class="headerlink" title="实现原理："></a><b style="color:skyblue">实现原理：</b></h3><p><strong>bean容器的启动阶段</strong>：</p>
+<h2 id="1-简单工厂-非23种设计模式中的一种">1.简单工厂(非23种设计模式中的一种)</h2>
+<h3 id="b-style-color-skyblue-实现方式：-b"><b style="color:skyblue">实现方式：</b></h3>
+<p>BeanFactory。Spring中的BeanFactory就是简单工厂模式的体现，根据传入一个唯一的标识来获得Bean对象，但是否是在传入参数后创建还是传入参数前创建这个要根据具体情况来定。</p>
+<h3 id="b-style-color-skyblue-实质：-b"><b style="color:skyblue">实质：</b></h3>
+<p>由一个工厂类根据传入的参数，动态决定应该创建哪一个产品类。</p>
+<h3 id="b-style-color-skyblue-实现原理：-b"><b style="color:skyblue">实现原理：</b></h3>
+<p><strong>bean容器的启动阶段</strong>：</p>
 <ul>
 <li>读取bean的xml配置文件,将bean元素分别转换成一个BeanDefinition对象。</li>
 <li>然后通过BeanDefinitionRegistry将这些bean注册到beanFactory中，保存在它的一个ConcurrentHashMap中。</li>
-<li>将BeanDefinition注册到了beanFactory之后，在这里Spring为我们提供了一个扩展的切口，允许我们通过实现接口BeanFactoryPostProcessor<br>在此处来插入我们定义的代码。典型的例子就是：PropertyPlaceholderConfigurer，我们一般在配置数据库的dataSource时使用到的占位符的值，就是它注入进去的。</li>
+<li>将BeanDefinition注册到了beanFactory之后，在这里Spring为我们提供了一个扩展的切口，允许我们通过实现接口BeanFactoryPostProcessor<br>
+在此处来插入我们定义的代码。典型的例子就是：PropertyPlaceholderConfigurer，我们一般在配置数据库的dataSource时使用到的占位符的值，就是它注入进去的。</li>
 </ul>
 <p><strong>容器中bean的实例化阶段</strong>：</p>
 <p>实例化阶段主要是通过反射或者CGLIB对bean进行实例化，在这个阶段Spring又给我们暴露了很多的扩展点：</p>
@@ -45,55 +54,77 @@ Spring中涉及的设计模式总结
 <li><strong>InitializingBean接口</strong> ，实现了InitializingBean接口的bean，在实例化bean时Spring会帮我们调用接口中的方法。</li>
 <li><strong>DisposableBean接口</strong> ，实现了BeanPostProcessor接口的bean，在该bean死亡时Spring会帮我们调用接口中的方法。</li>
 </ul>
-<h3 id="设计意义："><a href="#设计意义：" class="headerlink" title="设计意义："></a><b style="color:skyblue">设计意义：</b></h3><p><strong>松耦合。</strong><br>可以将原来硬编码的依赖，通过Spring这个beanFactory这个工厂来注入依赖，也就是说原来只有依赖方和被依赖方，现在我们引入了第三方——spring这个beanFactory，由它来解决bean之间的依赖问题，达到了松耦合的效果.</p>
-<p><strong>bean的额外处理。</strong><br>通过Spring接口的暴露，在实例化bean的阶段我们可以进行一些额外的处理，这些额外的处理只需要让bean实现对应的接口即可，那么spring就会在bean的生命周期调用我们实现的接口来处理该bean。[非常重要]</p>
+<h3 id="b-style-color-skyblue-设计意义：-b"><b style="color:skyblue">设计意义：</b></h3>
+<p><strong>松耦合。</strong><br>
+可以将原来硬编码的依赖，通过Spring这个beanFactory这个工厂来注入依赖，也就是说原来只有依赖方和被依赖方，现在我们引入了第三方——spring这个beanFactory，由它来解决bean之间的依赖问题，达到了松耦合的效果.</p>
+<p><strong>bean的额外处理。</strong><br>
+通过Spring接口的暴露，在实例化bean的阶段我们可以进行一些额外的处理，这些额外的处理只需要让bean实现对应的接口即可，那么spring就会在bean的生命周期调用我们实现的接口来处理该bean。[非常重要]</p>
 <hr>
-<h2 id="2-工厂方法"><a href="#2-工厂方法" class="headerlink" title="2.工厂方法"></a>2.工厂方法</h2><h3 id="实现方式：-1"><a href="#实现方式：-1" class="headerlink" title="实现方式："></a><b style="color:skyblue">实现方式：</b></h3><p>FactoryBean接口。</p>
-<h3 id="实现原理：-1"><a href="#实现原理：-1" class="headerlink" title="实现原理："></a><b style="color:skyblue">实现原理：</b></h3><p>实现了FactoryBean接口的bean是一类叫做factory的bean。其特点是，spring会在使用getBean()<br>调用获得该bean时，会自动调用该bean的getObject()方法，所以返回的不是factory这个bean，而是这个bean.getOjbect()方法的返回值。</p>
-<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a><b style="color:skyblue">例子：</b></h3><p>典型的例子有spring与mybatis的结合。</p>
+<h2 id="2-工厂方法">2.工厂方法</h2>
+<h3 id="b-style-color-skyblue-实现方式：-b-2"><b style="color:skyblue">实现方式：</b></h3>
+<p>FactoryBean接口。</p>
+<h3 id="b-style-color-skyblue-实现原理：-b-2"><b style="color:skyblue">实现原理：</b></h3>
+<p>实现了FactoryBean接口的bean是一类叫做factory的bean。其特点是，spring会在使用getBean()<br>
+调用获得该bean时，会自动调用该bean的getObject()方法，所以返回的不是factory这个bean，而是这个bean.getOjbect()方法的返回值。</p>
+<h3 id="b-style-color-skyblue-例子：-b"><b style="color:skyblue">例子：</b></h3>
+<p>典型的例子有spring与mybatis的结合。</p>
 <p><strong>代码示例</strong>：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;sqlSessionFactory&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;configLocation&quot;</span> <span class="attr">value</span>=<span class="string">&quot;classpath:config/mybatis-config-masterxml&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;mapperLocations&quot;</span> <span class="attr">value</span>=<span class="string">&quot;classpath:config/mappers/master/*/xml&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>说明</strong>：</p>
-<p>我们看上面该bean，因为实现了FactoryBean接口，所以返回的不是 SqlSessionFactoryBean 的实例，而是它的<br>SqlSessionFactoryBean.getObject() 的返回值。</p>
+<p>我们看上面该bean，因为实现了FactoryBean接口，所以返回的不是 SqlSessionFactoryBean 的实例，而是它的<br>
+SqlSessionFactoryBean.getObject() 的返回值。</p>
 <hr>
-<h2 id="3-单例模式"><a href="#3-单例模式" class="headerlink" title="3.单例模式"></a>3.单例模式</h2><ul>
+<h2 id="3-单例模式">3.单例模式</h2>
+<ul>
 <li>Spring依赖注入Bean实例默认是单例的。</li>
 <li>Spring的依赖注入（包括lazy-init方式）都是发生在AbstractBeanFactory的getBean里。getBean的doGetBean方法调用getSingleton进行bean的创建。</li>
 <li>分析getSingleton()方法</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Object <span class="title function_">getSingleton</span><span class="params">(String beanName)</span> &#123;</span><br><span class="line">    <span class="comment">//参数true设置标识允许早期依赖</span></span><br><span class="line">    <span class="keyword">return</span> getSingleton(beanName, <span class="literal">true</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> Object <span class="title function_">getSingleton</span><span class="params">(String beanName, <span class="type">boolean</span> allowEarlyReference)</span> &#123;</span><br><span class="line">    <span class="comment">//检查缓存中是否存在实例</span></span><br><span class="line">    <span class="type">Object</span> <span class="variable">singletonObject</span> <span class="operator">=</span> <span class="built_in">this</span>.singletonObjects.get(beanName);</span><br><span class="line">    <span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) &#123;</span><br><span class="line">      <span class="comment">//如果为空，则锁定全局变量并进行处理。</span></span><br><span class="line">      <span class="keyword">synchronized</span> (<span class="built_in">this</span>.singletonObjects) &#123;</span><br><span class="line">        <span class="comment">//如果此bean正在加载，则不处理</span></span><br><span class="line">        singletonObject = <span class="built_in">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">        <span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; allowEarlyReference) &#123;</span><br><span class="line">          <span class="comment">//当某些方法需要提前初始化的时候则会调用addSingleFactory 方法将对应的ObjectFactory初始化策略存储在singletonFactories</span></span><br><span class="line">          ObjectFactory&lt;?&gt; singletonFactory = <span class="built_in">this</span>.singletonFactories.get(beanName);</span><br><span class="line">          <span class="keyword">if</span> (singletonFactory != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//调用预先设定的getObject方法</span></span><br><span class="line">            singletonObject = singletonFactory.getObject();</span><br><span class="line">            <span class="comment">//记录在缓存中，earlySingletonObjects和singletonFactories互斥</span></span><br><span class="line">            <span class="built_in">this</span>.earlySingletonObjects.put(beanName, singletonObject);</span><br><span class="line">            <span class="built_in">this</span>.singletonFactories.remove(beanName);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (singletonObject != NULL_OBJECT ? singletonObject : <span class="literal">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>getSingleton()过程图</li>
 </ul>
 <p>ps：spring依赖注入时，使用了 双重判断加锁 的单例模式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">s[[singletonObjects +getBeanName&lt;&gt;]] ==&gt;</span><br><span class="line">e[[earlySingletonObjects +getBeanName&lt;&gt;]] ==&gt;</span><br><span class="line">f[[singletonFactories +getObject&lt;&gt;]] ==&gt;</span><br><span class="line">创[[创建单例实例]] ===&gt;|remove|f</span><br><span class="line">创 ==&gt;|put|e</span><br></pre></td></tr></table></figure>
-
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a><b style="color:skyblue">总结：</b></h3><p><strong>单例模式定义</strong>： 保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+<h3 id="b-style-color-skyblue-总结：-b"><b style="color:skyblue">总结：</b></h3>
+<p><strong>单例模式定义</strong>： 保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
 <p><strong>spring对单例的实现</strong>： spring中的单例模式完成了后半句话，即提供了全局的访问点BeanFactory。但没有从构造器级别去控制单例，这是因为spring管理的是任意的java对象。</p>
 <hr>
-<h2 id="4-适配器模式"><a href="#4-适配器模式" class="headerlink" title="4.适配器模式"></a>4.适配器模式</h2><h3 id="实现方式：-2"><a href="#实现方式：-2" class="headerlink" title="实现方式："></a><b style="color:skyblue">实现方式：</b></h3><p>SpringMVC中的适配器HandlerAdatper。</p>
-<h3 id="实现原理：-2"><a href="#实现原理：-2" class="headerlink" title="实现原理："></a><b style="color:skyblue">实现原理：</b></h3><p>HandlerAdatper根据Handler规则执行不同的Handler。</p>
-<h3 id="实现过程："><a href="#实现过程：" class="headerlink" title="实现过程："></a><b style="color:skyblue">实现过程：</b></h3><p>DispatcherServlet根据HandlerMapping返回的handler，向HandlerAdatper发起请求，处理Handler。</p>
+<h2 id="4-适配器模式">4.适配器模式</h2>
+<h3 id="b-style-color-skyblue-实现方式：-b-3"><b style="color:skyblue">实现方式：</b></h3>
+<p>SpringMVC中的适配器HandlerAdatper。</p>
+<h3 id="b-style-color-skyblue-实现原理：-b-3"><b style="color:skyblue">实现原理：</b></h3>
+<p>HandlerAdatper根据Handler规则执行不同的Handler。</p>
+<h3 id="b-style-color-skyblue-实现过程：-b"><b style="color:skyblue">实现过程：</b></h3>
+<p>DispatcherServlet根据HandlerMapping返回的handler，向HandlerAdatper发起请求，处理Handler。</p>
 <p>HandlerAdapter根据规则找到对应的Handler并让其执行，执行完毕后Handler会向HandlerAdapter返回一个ModelAndView，最后由HandlerAdapter向DispatchServelet返回一个ModelAndView。</p>
-<h3 id="实现意义："><a href="#实现意义：" class="headerlink" title="实现意义："></a><b style="color:skyblue">实现意义：</b></h3><p>HandlerAdatper使得Handler的扩展变得容易，只需要增加一个新的Handler和一个对应的HandlerAdapter即可。</p>
+<h3 id="b-style-color-skyblue-实现意义：-b"><b style="color:skyblue">实现意义：</b></h3>
+<p>HandlerAdatper使得Handler的扩展变得容易，只需要增加一个新的Handler和一个对应的HandlerAdapter即可。</p>
 <p>因此Spring定义了一个适配接口，使得每一种Controller有一种对应的适配器实现类，让适配器代替controller执行相应的方法。这样在扩展Controller时，只需要增加一个适配器类就完成了SpringMVC的扩展了。</p>
 <hr>
-<h2 id="5-装饰器模式"><a href="#5-装饰器模式" class="headerlink" title="5.装饰器模式"></a>5.装饰器模式</h2><h3 id="实现方式：-3"><a href="#实现方式：-3" class="headerlink" title="实现方式："></a><b style="color:skyblue">实现方式：</b></h3><p>Spring中用到的包装器模式在类名上有两种表现：一种是类名中含有Wrapper，另一种是类名中含有Decorator。</p>
-<h3 id="实质：-1"><a href="#实质：-1" class="headerlink" title="实质："></a><b style="color:skyblue">实质：</b></h3><p>动态地给一个对象添加一些额外的职责。</p>
+<h2 id="5-装饰器模式">5.装饰器模式</h2>
+<h3 id="b-style-color-skyblue-实现方式：-b-4"><b style="color:skyblue">实现方式：</b></h3>
+<p>Spring中用到的包装器模式在类名上有两种表现：一种是类名中含有Wrapper，另一种是类名中含有Decorator。</p>
+<h3 id="b-style-color-skyblue-实质：-b-2"><b style="color:skyblue">实质：</b></h3>
+<p>动态地给一个对象添加一些额外的职责。</p>
 <p>就增加功能来说，Decorator模式相比生成子类更为灵活。</p>
 <hr>
-<h2 id="6-代理模式"><a href="#6-代理模式" class="headerlink" title="6.代理模式"></a>6.代理模式</h2><h3 id="实现方式：-4"><a href="#实现方式：-4" class="headerlink" title="实现方式："></a><b style="color:skyblue">实现方式：</b></h3><p>AOP底层，就是动态代理模式的实现。</p>
+<h2 id="6-代理模式">6.代理模式</h2>
+<h3 id="b-style-color-skyblue-实现方式：-b-5"><b style="color:skyblue">实现方式：</b></h3>
+<p>AOP底层，就是动态代理模式的实现。</p>
 <ul>
 <li>动态代理：在内存中构建的，不需要手动编写代理类</li>
 <li>静态代理：需要手工编写代理类，代理类引用被代理对象。</li>
 </ul>
-<h3 id="实现原理：-3"><a href="#实现原理：-3" class="headerlink" title="实现原理："></a><b style="color:skyblue">实现原理：</b></h3><p>切面在应用运行的时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象创建动态的创建一个代理对象。SpringAOP就是以这种方式织入切面的。</p>
+<h3 id="b-style-color-skyblue-实现原理：-b-4"><b style="color:skyblue">实现原理：</b></h3>
+<p>切面在应用运行的时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象创建动态的创建一个代理对象。SpringAOP就是以这种方式织入切面的。</p>
 <p>织入：把切面应用到目标对象并创建新的代理对象的过程。</p>
 <hr>
-<h2 id="7-观察者模式"><a href="#7-观察者模式" class="headerlink" title="7.观察者模式"></a>7.观察者模式</h2><h3 id="实现方式：-5"><a href="#实现方式：-5" class="headerlink" title="实现方式："></a><b style="color:skyblue">实现方式：</b></h3><p>spring的事件驱动模型使用的是 观察者模式 ，Spring中Observer模式常用的地方是listener的实现。</p>
-<h3 id="具体实现："><a href="#具体实现：" class="headerlink" title="具体实现："></a><b style="color:skyblue">具体实现：</b></h3><p>事件机制的实现需要三个部分,事件源,事件,事件监听器</p>
+<h2 id="7-观察者模式">7.观察者模式</h2>
+<h3 id="b-style-color-skyblue-实现方式：-b-6"><b style="color:skyblue">实现方式：</b></h3>
+<p>spring的事件驱动模型使用的是 观察者模式 ，Spring中Observer模式常用的地方是listener的实现。</p>
+<h3 id="b-style-color-skyblue-具体实现：-b"><b style="color:skyblue">具体实现：</b></h3>
+<p>事件机制的实现需要三个部分,事件源,事件,事件监听器</p>
 <p>(1) ApplicationEvent抽象类[事件]</p>
 <ul>
 <li>继承自jdk的EventObject,所有的事件都需要继承ApplicationEvent,并且通过构造器参数source得到事件源.</li>
@@ -101,7 +132,6 @@ Spring中涉及的设计模式总结
 <li>代码：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">ApplicationEvent</span> <span class="keyword">extends</span> <span class="title class_">EventObject</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">7099057708183571937L</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> timestamp;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">ApplicationEvent</span><span class="params">(Object source)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(source);</span><br><span class="line">    <span class="built_in">this</span>.timestamp = System.currentTimeMillis();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> <span class="type">long</span> <span class="title function_">getTimestamp</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.timestamp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>(2)ApplicationListener接口[事件监听器]</p>
 <ul>
 <li>继承自jdk的EventListener,所有的监听器都要实现这个接口。</li>
@@ -110,7 +140,6 @@ Spring中涉及的设计模式总结
 <li>代码：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ApplicationListener</span>&lt;E <span class="keyword">extends</span> <span class="title class_">ApplicationEvent</span>&gt; <span class="keyword">extends</span> <span class="title class_">EventListener</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">onApplicationEvent</span><span class="params">(E event)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>(3) ApplicationContext接口[事件源]</p>
 <ul>
 <li>ApplicationContext是spring中的全局容器，翻译过来是”应用上下文”。</li>
@@ -119,27 +148,30 @@ Spring中涉及的设计模式总结
 <li>代码：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ApplicationEventPublisher</span> &#123;</span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">publishEvent</span><span class="params">(ApplicationEvent event)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">EventPublisher</span> <span class="keyword">implements</span> <span class="title class_">ApplicationEventPublisher</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">publishEvent</span><span class="params">(ApplicationEvent event)</span> &#123;</span><br><span class="line">    Assert.notNull(event, <span class="string">&quot;Event must not be null&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">      logger.trace(<span class="string">&quot;Publishing event in &quot;</span> + getDisplayName() + <span class="string">&quot;: &quot;</span> + event);</span><br><span class="line">    &#125;</span><br><span class="line">    getApplicationEventMulticaster().multicastEvent(event);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.parent != <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.parent.publishEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <p>(4)ApplicationEventMulticaster抽象类[事件源中publishEvent方法需要调用其方法getApplicationEventMulticaster]</p>
 <ul>
 <li>属于事件广播器,它的作用是把ApplicationContext发布的Event广播给所有的监听器.</li>
 <li>代码：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AbstractApplicationContext</span> <span class="keyword">extends</span> <span class="title class_">DefaultResourceLoader</span></span><br><span class="line">  <span class="keyword">implements</span> <span class="title class_">ConfigurableApplicationContext</span>, DisposableBean &#123;</span><br><span class="line">  <span class="keyword">private</span> ApplicationEventMulticaster applicationEventMulticaster;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">registerListeners</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// Register statically specified listeners first.</span></span><br><span class="line">    <span class="keyword">for</span> (ApplicationListener&lt;?&gt; listener : getApplicationListeners()) &#123;</span><br><span class="line">      getApplicationEventMulticaster().addApplicationListener(listener);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Do not initialize FactoryBeans here: We need to leave all regular beans</span></span><br><span class="line">    <span class="comment">// uninitialized to let post-processors apply to them!</span></span><br><span class="line">    String[] listenerBeanNames = getBeanNamesForType(ApplicationListener.class, <span class="literal">true</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">for</span> (String lisName : listenerBeanNames) &#123;</span><br><span class="line">      getApplicationEventMulticaster().addApplicationListenerBean(lisName);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <hr>
-<h2 id="8-策略模式"><a href="#8-策略模式" class="headerlink" title="8.策略模式"></a>8.策略模式</h2><h3 id="实现方式：-6"><a href="#实现方式：-6" class="headerlink" title="实现方式："></a><b style="color:skyblue">实现方式：</b></h3><p>Spring框架的资源访问Resource接口。该接口提供了更强的资源访问能力，Spring 框架本身大量使用了 Resource 接口来访问底层资源。</p>
-<h3 id="Resource-接口介绍"><a href="#Resource-接口介绍" class="headerlink" title="Resource 接口介绍"></a><b style="color:skyblue">Resource 接口介绍</b></h3><p>source 接口是具体资源访问策略的抽象，也是所有资源访问类所实现的接口。</p>
+<h2 id="8-策略模式">8.策略模式</h2>
+<h3 id="b-style-color-skyblue-实现方式：-b-7"><b style="color:skyblue">实现方式：</b></h3>
+<p>Spring框架的资源访问Resource接口。该接口提供了更强的资源访问能力，Spring 框架本身大量使用了 Resource 接口来访问底层资源。</p>
+<h3 id="b-style-color-skyblue-Resource-接口介绍-b"><b style="color:skyblue">Resource 接口介绍</b></h3>
+<p>source 接口是具体资源访问策略的抽象，也是所有资源访问类所实现的接口。</p>
 <p>Resource 接口主要提供了如下几个方法:</p>
 <ul>
-<li>**getInputStream()**： 定位并打开资源，返回资源对应的输入流。每次调用都返回新的输入流。调用者必须负责关闭输入流。</li>
-<li>**exists()**： 返回 Resource 所指向的资源是否存在。</li>
-<li>**isOpen()**： 返回资源文件是否打开，如果资源文件不能多次读取，每次读取结束应该显式关闭，以防止资源泄漏。</li>
-<li>**getDescription()**： 返回资源的描述信息，通常用于资源处理出错时输出该信息，通常是全限定文件名或实际 URL。</li>
+<li><strong>getInputStream()</strong>： 定位并打开资源，返回资源对应的输入流。每次调用都返回新的输入流。调用者必须负责关闭输入流。</li>
+<li><strong>exists()</strong>： 返回 Resource 所指向的资源是否存在。</li>
+<li><strong>isOpen()</strong>： 返回资源文件是否打开，如果资源文件不能多次读取，每次读取结束应该显式关闭，以防止资源泄漏。</li>
+<li><strong>getDescription()</strong>： 返回资源的描述信息，通常用于资源处理出错时输出该信息，通常是全限定文件名或实际 URL。</li>
 <li><strong>getFile</strong>： 返回资源对应的 File 对象。</li>
-<li><strong>getURL</strong>： 返回资源对应的 URL 对象。<br>最后两个方法通常无须使用，仅在通过简单方式访问无法实现时，Resource 提供传统的资源访问的功能。</li>
+<li><strong>getURL</strong>： 返回资源对应的 URL 对象。<br>
+最后两个方法通常无须使用，仅在通过简单方式访问无法实现时，Resource 提供传统的资源访问的功能。</li>
 </ul>
-<p>Resource 接口本身没有提供访问任何底层资源的实现逻辑，<strong>针对不同的底层资源，Spring 将会提供不同的 Resource<br>实现类，不同的实现类负责不同的资源访问逻辑。</strong></p>
+<p>Resource 接口本身没有提供访问任何底层资源的实现逻辑，<strong>针对不同的底层资源，Spring 将会提供不同的 Resource<br>
+实现类，不同的实现类负责不同的资源访问逻辑。</strong></p>
 <p>Spring 为 Resource 接口提供了如下实现类：</p>
 <ul>
 <li><strong>UrlResource</strong>： 访问网络资源的实现类。</li>
@@ -147,28 +179,34 @@ Spring中涉及的设计模式总结
 <li><strong>FileSystemResource</strong>： 访问文件系统里资源的实现类。</li>
 <li><strong>ServletContextResource</strong>： 访问相对于 ServletContext 路径里的资源的实现类.</li>
 <li><strong>InputStreamResource</strong>： 访问输入流资源的实现类。</li>
-<li><strong>ByteArrayResource</strong>： 访问字节数组资源的实现类。<br>这些 Resource 实现类，针对不同的的底层资源，提供了相应的资源访问逻辑，并提供便捷的包装，以利于客户端程序的资源访问。</li>
+<li><strong>ByteArrayResource</strong>： 访问字节数组资源的实现类。<br>
+这些 Resource 实现类，针对不同的的底层资源，提供了相应的资源访问逻辑，并提供便捷的包装，以利于客户端程序的资源访问。</li>
 </ul>
 <hr>
-<h2 id="9-模版方法模式"><a href="#9-模版方法模式" class="headerlink" title="9.模版方法模式"></a>9.模版方法模式</h2><h3 id="经典模板方法定义："><a href="#经典模板方法定义：" class="headerlink" title="经典模板方法定义："></a><b style="color:skyblue">经典模板方法定义：</b></h3><p>父类定义了骨架（调用哪些方法及顺序），某些特定方法由子类实现。</p>
+<h2 id="9-模版方法模式">9.模版方法模式</h2>
+<h3 id="b-style-color-skyblue-经典模板方法定义：-b"><b style="color:skyblue">经典模板方法定义：</b></h3>
+<p>父类定义了骨架（调用哪些方法及顺序），某些特定方法由子类实现。</p>
 <p>最大的好处：代码复用，减少重复代码。除了子类要实现的特定方法，其他方法及方法调用顺序都在父类中预先写好了。</p>
 <p><strong>所以父类模板方法中有两类方法</strong>：</p>
 <p><strong>共同的方法</strong>： 所有子类都会用到的代码</p>
 <p><strong>不同的方法</strong>： 子类要覆盖的方法，分为两种：</p>
-<p>抽象方法：父类中的是抽象方法，子类必须覆盖<br>钩子方法：父类中是一个空方法，子类继承了默认也是空的<br>注：为什么叫钩子，子类可以通过这个钩子（方法），控制父类，因为这个钩子实际是父类的方法（空方法）！</p>
-<h3 id="Spring模板方法模式实质："><a href="#Spring模板方法模式实质：" class="headerlink" title="Spring模板方法模式实质："></a><b style="color:skyblue">Spring模板方法模式实质：</b></h3><p>是模板方法模式和回调模式的结合，是Template Method不需要继承的另一种实现方式。Spring几乎所有的外接扩展都采用这种模式。</p>
-<h3 id="具体实现：-1"><a href="#具体实现：-1" class="headerlink" title="具体实现："></a><b style="color:skyblue">具体实现：</b></h3><p>JDBC的抽象和对Hibernate的集成，都采用了一种理念或者处理方式，那就是模板方法模式与相应的Callback接口相结合。</p>
+<p>抽象方法：父类中的是抽象方法，子类必须覆盖<br>
+钩子方法：父类中是一个空方法，子类继承了默认也是空的<br>
+注：为什么叫钩子，子类可以通过这个钩子（方法），控制父类，因为这个钩子实际是父类的方法（空方法）！</p>
+<h3 id="b-style-color-skyblue-Spring模板方法模式实质：-b"><b style="color:skyblue">Spring模板方法模式实质：</b></h3>
+<p>是模板方法模式和回调模式的结合，是Template Method不需要继承的另一种实现方式。Spring几乎所有的外接扩展都采用这种模式。</p>
+<h3 id="b-style-color-skyblue-具体实现：-b-2"><b style="color:skyblue">具体实现：</b></h3>
+<p>JDBC的抽象和对Hibernate的集成，都采用了一种理念或者处理方式，那就是模板方法模式与相应的Callback接口相结合。</p>
 <p>采用模板方法模式是为了以一种统一而集中的方式来处理资源的获取和释放，以JdbcTemplate为例:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">JdbcTemplate</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> Object <span class="title function_">execute</span><span class="params">(String sql)</span> &#123;</span><br><span class="line">    <span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      con = getConnection();</span><br><span class="line">      stmt = con.createStatement();</span><br><span class="line">      <span class="type">Object</span> <span class="variable">retValue</span> <span class="operator">=</span> executeWithStatement(stmt, sql);</span><br><span class="line">      <span class="keyword">return</span> retValue;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      closeStatement(stmt);</span><br><span class="line">      releaseConnection(con);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">abstract</span> Object <span class="title function_">executeWithStatement</span><span class="params">(Statement stmt, String sql)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="引入回调原因："><a href="#引入回调原因：" class="headerlink" title="引入回调原因："></a><b style="color:skyblue">引入回调原因：</b></h3><p>JdbcTemplate是抽象类，不能够独立使用，我们每次进行数据访问的时候都要给出一个相应的子类实现,这样肯定不方便，所以就引入了回调。</p>
+<h3 id="b-style-color-skyblue-引入回调原因：-b"><b style="color:skyblue">引入回调原因：</b></h3>
+<p>JdbcTemplate是抽象类，不能够独立使用，我们每次进行数据访问的时候都要给出一个相应的子类实现,这样肯定不方便，所以就引入了回调。</p>
 <p>回调代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">StatementCallback</span> &#123;</span><br><span class="line">  Object <span class="title function_">doWithStatement</span><span class="params">(Statement stmt)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>利用回调方法重写JdbcTemplate方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JdbcTemplate</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">final</span> Object <span class="title function_">execute</span><span class="params">(StatementCallback callback)</span> &#123;</span><br><span class="line">    <span class="type">Connection</span> <span class="variable">con</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      con = getConnection();</span><br><span class="line">      stmt = con.createStatement();</span><br><span class="line">      <span class="type">Object</span> <span class="variable">retValue</span> <span class="operator">=</span> callback.doWithStatement(stmt);</span><br><span class="line">      <span class="keyword">return</span> retValue;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      closeStatement(stmt);</span><br><span class="line">      releaseConnection(con);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//其它方法定义...</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="为什么JdbcTemplate没有使用继承？"><a href="#为什么JdbcTemplate没有使用继承？" class="headerlink" title="为什么JdbcTemplate没有使用继承？"></a><b style="color:skyblue">为什么JdbcTemplate没有使用继承？</b></h3><p>因为这个类的方法太多，但是我们还是想用到JdbcTemplate已有的稳定的、公用的数据库连接，那么我们怎么办呢？</p>
+<h3 id="b-style-color-skyblue-为什么JdbcTemplate没有使用继承？-b"><b style="color:skyblue">为什么JdbcTemplate没有使用继承？</b></h3>
+<p>因为这个类的方法太多，但是我们还是想用到JdbcTemplate已有的稳定的、公用的数据库连接，那么我们怎么办呢？</p>
 <p>我们可以把变化的东西抽出来作为一个参数传入JdbcTemplate的方法中。但是变化的东西是一段代码，而且这段代码会用到JdbcTemplate中的变量。怎么办？</p>
 <p>那我们就用回调对象吧。在这个回调对象中定义一个操纵JdbcTemplate中变量的方法，我们去实现这个方法，就把变化的东西集中到这里了。然后我们再传入这个回调对象到JdbcTemplate，从而完成了调用。</p>
 </p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/设计模式/" title="设计模式">设计模式 </a><i class="fa fa-tag"></i><a class="tag" href="/tags/设计模式/" title="设计模式">设计模式 </a><span class="leancloud_visitors"></span><span>About 3701 words, 12 min 20 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://example.com/2023/08/18/design-model/,Every,设计模式笔记,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/vm-ubuntu/" title="Windows环境VM中安装Ubuntu 23.04">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/spring-aop/" title="Spring AOP 笔记">Next</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
