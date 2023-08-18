@@ -1,67 +1,19 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Every</title><meta name="description" content="浮生一薤露，蜗角争是非"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><i class="fa fa-star"></i><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/vm-ubuntu/">Windows环境VM中安装Ubuntu 23.04</a></h3></div><div class="post-content"><div class="card"><p><hr>
-<h2 id="准备镜像"><a href="#准备镜像" class="headerlink" title="准备镜像"></a>准备镜像</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
-<p>ubuntu-23.04-desktop-amd64.iso</p>
-</blockquote>
-<hr>
-<h2 id="安装VM17并激活"><a href="#安装VM17并激活" class="headerlink" title="安装VM17并激活"></a>安装VM17并激活</h2><blockquote>
-<p>MC60H-DWHD5-H80U9-6V85M-8280D</p>
-</blockquote>
-<hr>
-<h2 id="VM中安装Ubuntu"><a href="#VM中安装Ubuntu" class="headerlink" title="VM中安装Ubuntu"></a>VM中安装Ubuntu</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qyfx123456/article/details/130190155">https://blog.csdn.net/qyfx123456/article/details/130190155</a></p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">（vm中复制粘贴用）</span></span><br><span class="line">sudo apt-get install open-vm-tools-desktop -y</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>设计模式笔记 · Every</title><meta name="description" content="目录
+简单工厂(非23种设计模式中的一种)
+工厂方法
+单例模式
+适配器模式
+装饰器模式
+代理模式
+观察者模式
+策略模式
+模版方法模式
 
-<hr>
-<h2 id="Ubuntu中安装Docker"><a href="#Ubuntu中安装Docker" class="headerlink" title="Ubuntu中安装Docker"></a>Ubuntu中安装Docker</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
-</blockquote>
-<hr>
-<h2 id="Ubuntu中安装JDK8"><a href="#Ubuntu中安装JDK8" class="headerlink" title="Ubuntu中安装JDK8"></a>Ubuntu中安装JDK8</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openjdk-8-jdk</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h2 id="Ubuntu中安装Redis"><a href="#Ubuntu中安装Redis" class="headerlink" title="Ubuntu中安装Redis"></a>Ubuntu中安装Redis</h2><ol>
-<li>安装</li>
-</ol>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/764565">https://developer.aliyun.com/article/764565</a></p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install redis-server</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>注释bind</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis/redis.conf</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="built_in">bind</span> 127.0.0.1</span></span><br></pre></td></tr></table></figure>
+Spring中涉及的设计模式总结
 
-<ol start="3">
-<li>设置密码</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis/redis.conf</span><br><span class="line">requierpass 123</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>通过防火墙</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow proto tcp from 192.168.58.1/24 to any port 6379</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>开机自启动</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable redis-server</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Ubuntu中安装MySQL"><a href="#Ubuntu中安装MySQL" class="headerlink" title="Ubuntu中安装MySQL"></a>Ubuntu中安装MySQL</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">防火墙 allow</span></span><br><span class="line">sudo ufw allow mysql</span><br><span class="line">sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line">bind-address 0.0.0.0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">mysql</span></span><br><span class="line">mysql</span><br><span class="line">use mysql;</span><br><span class="line">set global validate_password.policy=0;</span><br><span class="line">set global validate_password.length=3;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;123456&#x27;;</span><br><span class="line">update user set host = &#x27;%&#x27; where user=&#x27;root&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">restart</span></span><br><span class="line">sudo systemctl restart mysql</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Docker中安装Nacos"><a href="#Docker中安装Nacos" class="headerlink" title="Docker中安装Nacos"></a>Docker中安装Nacos</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim Dokcerfile</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Dockerfile</span></span><br><span class="line">FROM nacos/nacos-server:latest</span><br><span class="line">EXPOSE 8848</span><br><span class="line">ENV MODE standalone</span><br><span class="line">ENV LANG en_US.UTF-8</span><br><span class="line">ENV LANGUAGE en_US.UTF-8</span><br><span class="line">ENV LC_ALL en_US.UTF-8</span><br><span class="line">CMD [&quot;nacos&quot;]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">build</span></span><br><span class="line">docker build -t nacos .</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">run</span></span><br><span class="line">docker run --name nacos --restart=always -d -p 8848:8848 nacos</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ufw</span></span><br><span class="line">sudo ufw allow proto tcp from 192.168.58.1/24 to any port 8848</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">curl</span></span><br><span class="line">curl localhost:8848/nacos</span><br></pre></td></tr></table></figure></p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Ubuntu/" title="Ubuntu">Ubuntu </a><a class="tag" href="/categories/Ubuntu/VM/" title="VM">VM </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Ubuntu/" title="Ubuntu">Ubuntu </a><i class="fa fa-tag"></i><a class="tag" href="/tags/VM/" title="VM">VM </a><span class="leancloud_visitors"></span><span>About 270 words, 54 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/design-model/">设计模式笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
+1.简单工厂(非23种设计模式中的一种)实现方式：BeanFactory。Spring中的BeanFactory就是简单工厂"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><i class="fa fa-star"></i><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><span>Anatolo </span></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>设计模式笔记</a></h3></div><div class="post-content"><p><hr>
 <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><ul>
 <li>简单工厂(非23种设计模式中的一种)</li>
 <li>工厂方法</li>
@@ -219,146 +171,16 @@
 <h3 id="为什么JdbcTemplate没有使用继承？"><a href="#为什么JdbcTemplate没有使用继承？" class="headerlink" title="为什么JdbcTemplate没有使用继承？"></a><b style="color:skyblue">为什么JdbcTemplate没有使用继承？</b></h3><p>因为这个类的方法太多，但是我们还是想用到JdbcTemplate已有的稳定的、公用的数据库连接，那么我们怎么办呢？</p>
 <p>我们可以把变化的东西抽出来作为一个参数传入JdbcTemplate的方法中。但是变化的东西是一段代码，而且这段代码会用到JdbcTemplate中的变量。怎么办？</p>
 <p>那我们就用回调对象吧。在这个回调对象中定义一个操纵JdbcTemplate中变量的方法，我们去实现这个方法，就把变化的东西集中到这里了。然后我们再传入这个回调对象到JdbcTemplate，从而完成了调用。</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/设计模式/" title="设计模式">设计模式 </a><i class="fa fa-tag"></i><a class="tag" href="/tags/设计模式/" title="设计模式">设计模式 </a><span class="leancloud_visitors"></span><span>About 3701 words, 12 min 20 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/spring-aop/">Spring AOP 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
-<h2 id="README"><a href="#README" class="headerlink" title="README"></a>README</h2><blockquote>
-<p>AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的组合，就是自定义注解+AOP。</p>
-</blockquote>
-<blockquote>
-<p>在开发中，AOP最大的作用就是重复代码简化。</p>
-</blockquote>
-<ol>
-<li>首先，自定义一个注解。</li>
-<li>定义 AOP 切面，在切面中，定义切点和通知，切点，也就是方法的拦截规则，我们可以按照注解来拦截，也就是某一个带有自定义注解的方法，将被我拦截下来。</li>
-<li>拦截下来之后，前置通知、后置通知、异常通知、返回通知还是环绕通知。</li>
-</ol>
-<hr>
-<h2 id="1-幂等性处理"><a href="#1-幂等性处理" class="headerlink" title="1.幂等性处理"></a>1.幂等性处理</h2><ul>
-<li>Token 机制</li>
-<li>去重表</li>
-<li>利用 Redis 的 setnx</li>
-<li>设置状态字段</li>
-<li>上锁</li>
-</ul>
-<ol>
-<li>自定义注解。</li>
-<li>自定义切点。</li>
-<li>定义环绕通知，在环绕通知中，先通过上述五种思路中的任意一种，对方法执行的幂等性进行判断。</li>
-</ol>
-<hr>
-<h2 id="2-接口限流"><a href="#2-接口限流" class="headerlink" title="2.接口限流"></a>2.接口限流</h2><p>推荐成熟方案 Alibaba 的 Sentinel</p>
-<p>如果自己写？思路大致如下：</p>
-<ol>
-<li>自定义注解。</li>
-<li>在需要进行限流的接口方法上添加自定义注解，同时还可以设置一些限流的参数，例如时间窗口值、流量大小等。</li>
-<li>自定义切点，拦截到方法之后，在环绕通知中，可以通过 Redis 插件 redis-cell、通过漏斗算法去处理限流。</li>
-</ol>
-<hr>
-<h2 id="3-日志处理"><a href="#3-日志处理" class="headerlink" title="3.日志处理"></a>3.日志处理</h2><p>AOP经典例子</p>
-<hr>
-<h2 id="4-多数据源处理"><a href="#4-多数据源处理" class="headerlink" title="4.多数据源处理"></a>4.多数据源处理</h2><p>自定义多数据源：</p>
-<blockquote>
-<p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key<br>值来动态切换到真正的 DataSource 上。</p>
-<blockquote>
-<p>大致的用法是提前准备好各种数据源，存入到一个 Map 中，Map 的 key 就是这个数据源的名字，Map 的 value 就是这个具体的数据源，然后再把这个<br>Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查询的时候，拿一个 key 出来，AbstractRoutingDataSource<br>会找到具体的数据源去执行这次数据库操作。</p>
-</blockquote>
-</blockquote>
-<p>思路大致如下：</p>
-<ol>
-<li>自定义注解。</li>
-<li>在需要切换数据源的方法上添加自定义注解。</li>
-<li>自定义切点，拦截到方法之后，在环绕通知中，根据注解中的配置，重新设置要执行的数据源。</li>
-</ol>
-<hr>
-<h2 id="5-方法权限处理"><a href="#5-方法权限处理" class="headerlink" title="5.方法权限处理"></a>5.方法权限处理</h2><p>推荐成熟方案 Spring Security</p>
-<p>如果自己写？思路大致如下：</p>
-<ol>
-<li>自定义注解。</li>
-<li>在需要进行校验的方法上添加自定义注解。</li>
-<li>自定义切点，拦截到方法之后，在环绕通知中，根据注解中的配置，查询处理权限。</li>
-</ol>
-<hr>
-<h2 id="6-事务处理"><a href="#6-事务处理" class="headerlink" title="6.事务处理"></a>6.事务处理</h2><p>Spring提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 755 words, 2 min 31 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/docker/">Docker 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
-<h2 id="README"><a href="#README" class="headerlink" title="README"></a>README</h2><p>本篇主要记录Docker进阶学习笔记</p>
-<hr>
-<h2 id="docker-pull-image"><a href="#docker-pull-image" class="headerlink" title="docker pull $image"></a>docker pull $image</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/opt# docker pull mysql</span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from library/mysql</span><br><span class="line">b193354265ba: Pull complete # 分层下载 联合文件系统</span><br><span class="line">14a15c0bb358: Already exists # 分层下载 联合文件系统 可以和其他镜像共用</span><br><span class="line">02da291ad1e4: Pull complete </span><br><span class="line">9a89a1d664ee: Pull complete </span><br><span class="line">a24ae6513051: Pull complete </span><br><span class="line">b85424247193: Pull complete </span><br><span class="line">9a240a3b3d51: Pull complete </span><br><span class="line">8bf57120f71f: Pull complete </span><br><span class="line">c64090e82a0b: Pull complete </span><br><span class="line">af7c7515d542: Pull complete </span><br><span class="line">Digest: sha256:c0455ac041844b5e65cd08571387fa5b50ab2a6179557fd938298cab13acf0dd # 签名</span><br><span class="line">Status: Downloaded newer image for mysql:latest</span><br><span class="line">docker.io/library/mysql:latest #真实地址 等价 docker pull mysql</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="GC参数"><a href="#GC参数" class="headerlink" title="GC参数"></a>GC参数</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-XX:+UseConcMarkSweepGC </span><br><span class="line">-XX:+UseCMSCompactAtFullCollection #CMS进行FullGC后进行压缩空间</span><br><span class="line">-XX:CMSInitiatingOccupancyFraction=70 #当堆内存使用比例达到70%时开始CMS初始标记阶段</span><br><span class="line">-XX:+CMSParallelRemarkEnabled #启用CMS垃圾回收器的并行标记阶段</span><br><span class="line">-XX:SoftRefLRUPolicyMSPerMB=0 #禁用软引用垃圾回收</span><br><span class="line">-XX:+CMSClassUnloadingEnabled #启用CMS垃圾回收器的类卸载功能,允许卸载未使用的类</span><br><span class="line">-XX:SurvivorRatio=8 # Eden:Survivor</span><br><span class="line">-XX:-UseParNewGC #在新生代中不使用 Parallel GC，而是使用默认的串行垃圾回收器（Serial GC）。Serial GC 只有一个线程进行垃圾回收，因此不会导致多线程竞争和额外的开销。</span><br><span class="line">-Xms1g </span><br><span class="line">-Xmx1g </span><br><span class="line">-Xmn512m </span><br><span class="line">-verbose:gc </span><br><span class="line">-XX:+PrintGCDetails </span><br><span class="line">-XX:+PrintGCDateStamps </span><br><span class="line">-XX:+PrintGCTimeStamps </span><br><span class="line">-XX:+UseGCLogFileRotation </span><br><span class="line">-XX:NumberOfGCLogFiles=10 </span><br><span class="line">-XX:GCLogFileSize=100M </span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="两种进入容器的方法"><a href="#两种进入容器的方法" class="headerlink" title="两种进入容器的方法"></a>两种进入容器的方法</h2><h3 id="docker-exec-it-container-bin-bash"><a href="#docker-exec-it-container-bin-bash" class="headerlink" title="docker exec -it $container &#x2F;bin&#x2F;bash"></a>docker exec -it $container &#x2F;bin&#x2F;bash</h3><p>进入容器内部 开启一个新终端</p>
-<h3 id="docker-attach-container"><a href="#docker-attach-container" class="headerlink" title="docker attach $container"></a>docker attach $container</h3><p>进入容器内部 进入正在执行的容器终端 不开启新终端</p>
-<hr>
-<h2 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h2><p>docker cp $container:$path $path</p>
-<p>拷贝容器内文件到主机</p>
-<hr>
-<h2 id="运行挂载容器卷"><a href="#运行挂载容器卷" class="headerlink" title="运行挂载容器卷"></a>运行挂载容器卷</h2><p>docker run -it -v $name:&#x2F;etc&#x2F;nginx:ro nginx –volumes-from mysql</p>
-<p>具名挂载：默认目录 &#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;$name&#x2F;_data</p>
-<p>匿名挂载：不填$name:</p>
-<p>:ro readonly 只能容器外部修改</p>
-<p>:rw readwrite</p>
-<p>–volumes-from 跟随挂载 例子可以实现多个mysql容器数据同步</p>
-<hr>
-<h2 id="docker-inspect-container"><a href="#docker-inspect-container" class="headerlink" title="docker inspect $container"></a>docker inspect $container</h2><p>信息</p>
-<hr>
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2></p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Docker/" title="Docker">Docker </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Docker/" title="Docker">Docker </a><span class="leancloud_visitors"></span><span>About 503 words, 1 min 40 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/hexo-init/">通过 GitHub 搭建个人博客 Hexo</a></h3></div><div class="post-content"><div class="card"><p><hr>
-<h2 id="README"><a href="#README" class="headerlink" title="README"></a>README</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
-</blockquote>
-<p>安装之前确认好要安装的Hexo版本所对应的Node最低需求。</p>
-<p>例如 Hexo 6.3.0 最低支持 node14 构建。</p>
-<!--suppress HtmlUnknownTarget -->
-<img src="/images/hexo-init-001.png" alt="image-20230817154901378" style="zoom:67%" />
-
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/hexo/v/6.3.0">https://www.npmjs.com/package/hexo/v/6.3.0</a></p>
-</blockquote>
-<hr>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install -g hexo-cli</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo init &lt;folder&gt;</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> &lt;folder&gt;</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="本地运行"><a href="#本地运行" class="headerlink" title="本地运行"></a>本地运行</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo g</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo s</span></span><br></pre></td></tr></table></figure>
-
-<p>访问 localhost:4000</p>
-<hr>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>部署到 GitHub Pages</p>
-<p>修改 _config.yml 替换添加如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:$username/$username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install hexo-deployer-git --save</span></span><br></pre></td></tr></table></figure>
-
-<p>最后执行三连。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo g</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo d</span></span><br></pre></td></tr></table></figure>
-
-<p>访问 $username.github.io。</p>
-<p>仓库名称需要设置成$username.github.io的格式。</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><span class="leancloud_visitors"></span><span>About 157 words, 31 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
-<h2 id="README"><a href="#README" class="headerlink" title="README"></a>README</h2><p>本篇主要记录Windows环境，生成及配置非默认、具有别名的SSH keys。</p>
-<blockquote>
-<p>id_ed25519.pub 这种以默认的名称命名的公钥文件，不需要额外配置即可自动识别。</p>
-<p>github_olive.pub 这种自定义key的公钥文件，需要在ssh-agent中添加才可被识别。</p>
-</blockquote>
-<hr>
-<h2 id="Generate-SSH"><a href="#Generate-SSH" class="headerlink" title="Generate SSH"></a>Generate SSH</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/# cd C:\Users\olive\.ssh</span><br><span class="line">root@Virtual:/# ssh-keygen -t ed25519 -C &quot;&lt;your github email&gt;&quot;</span><br><span class="line">Generating public/private ed25519 key pair.</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">自定义key</span></span><br><span class="line">Enter file in which to save the key (C:\Users\olive/.ssh/id_ed25519): github_olive</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其他默认</span></span><br><span class="line">...</span><br><span class="line">root@Virtual:/# dir</span><br><span class="line">2023/08/16  15:43               411 github_olive</span><br><span class="line">2023/08/16  15:43                98 github_olive.pub</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="Github-配置-SSH-keys"><a href="#Github-配置-SSH-keys" class="headerlink" title="Github 配置 SSH keys"></a>Github 配置 SSH keys</h2><p>Setting -&gt; SSH and GPG keys -&gt; New SSH key</p>
-<hr>
-<h2 id="本地测试是否配置成功"><a href="#本地测试是否配置成功" class="headerlink" title="本地测试是否配置成功"></a>本地测试是否配置成功</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/# ssh -T git@github.com</span><br><span class="line">git@github.com: Permission denied (publickey).</span><br></pre></td></tr></table></figure>
-
-<p>具体原因看README。</p>
-<hr>
-<h2 id="配置-Config-文件"><a href="#配置-Config-文件" class="headerlink" title="配置 Config 文件"></a>配置 Config 文件</h2><p>ssh-agent &amp; ssh-add 反正我配置的这俩只在当前窗口生效，所以直接选择配置Config文件一劳永逸。</p>
-<blockquote>
-<p>$ eval “$(ssh-agent -s)”<br>Agent pid 555<br>ssh-add ~&#x2F;.ssh&#x2F;github_olive</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/# cd C:\Users\olive\.ssh</span><br><span class="line">root@Virtual:/# dir</span><br><span class="line">2023/08/16  15:43                 1 config</span><br><span class="line">2023/08/16  15:43               411 github_olive</span><br><span class="line">2023/08/16  15:43                98 github_olive.pub</span><br><span class="line">root@Virtual:/# vim config</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/github_olive</span><br></pre></td></tr></table></figure>
-
-<p>再次测试是否授权。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/# ssh -T git@github.com</span><br><span class="line">Hi olive! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
-
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/SSH/" title="SSH">SSH </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Git/" title="Git">Git </a><i class="fa fa-tag"></i><a class="tag" href="/tags/SSH/" title="SSH">SSH </a><span class="leancloud_visitors"></span><span>About 307 words, 1 min 1 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
+</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/设计模式/" title="设计模式">设计模式 </a><i class="fa fa-tag"></i><a class="tag" href="/tags/设计模式/" title="设计模式">设计模式 </a><span class="leancloud_visitors"></span><span>About 3701 words, 12 min 20 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://example.com/2023/08/18/design-model/,Every,设计模式笔记,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/vm-ubuntu/" title="Windows环境VM中安装Ubuntu 23.04">Previous</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2023/08/18/spring-aop/" title="Spring AOP 笔记">Next</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:false || false, 
+  verify:false|| false, 
+  app_id:'psvcOmm9XvQsJOWA8NpE6XqM-gzGzoHsz',
+  app_key:'VQUGdO52bxTvgz78ApAL4mGO',
+  placeholder:'Hello,World.',
+  path: window.location.pathname,
+  serverURLs: '',
+  visitor:true,
+  recordIP:true,
+  avatar:'hide'
+})</script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
