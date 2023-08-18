@@ -5,7 +5,7 @@
 <p>ubuntu-23.04-desktop-amd64.iso</p>
 </blockquote>
 <hr>
-<h2 id="安装VM17并激活">安装VM17并激活</h2>
+<h2 id="安装VM17">安装VM17</h2>
 <blockquote>
 <p>MC60H-DWHD5-H80U9-6V85M-8280D</p>
 </blockquote>
@@ -39,7 +39,7 @@
 <ol start="3">
 <li>设置密码</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis/redis.conf</span><br><span class="line">requierpass 123</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/redis/redis.conf</span><br><span class="line"><span class="comment"># requierpass 123</span></span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>通过防火墙</li>
 </ol>
@@ -57,7 +57,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># build</span></span><br><span class="line">docker build -t nacos .</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># run</span></span><br><span class="line">docker run --name nacos --restart=always -d -p 8848:8848 nacos</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ufw</span></span><br><span class="line">sudo ufw allow proto tcp from 192.168.58.1/24 to any port 8848</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl</span></span><br><span class="line">curl localhost:8848/nacos</span><br></pre></td></tr></table></figure></p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Ubuntu/" title="Ubuntu">Ubuntu </a><a class="tag" href="/categories/Ubuntu/VM/" title="VM">VM </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Ubuntu/" title="Ubuntu">Ubuntu </a><i class="fa fa-tag"></i><a class="tag" href="/tags/VM/" title="VM">VM </a><span class="leancloud_visitors"></span><span>About 270 words, 54 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/design-model/">设计模式笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># curl</span></span><br><span class="line">curl localhost:8848/nacos</span><br></pre></td></tr></table></figure></p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Ubuntu/" title="Ubuntu">Ubuntu </a><a class="tag" href="/categories/Ubuntu/VM/" title="VM">VM </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Ubuntu/" title="Ubuntu">Ubuntu </a><i class="fa fa-tag"></i><a class="tag" href="/tags/VM/" title="VM">VM </a><span class="leancloud_visitors"></span><span>About 268 words, 53 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/design-model/">设计模式笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h3 id="目录">目录</h3>
 <ul>
 <li>简单工厂(非23种设计模式中的一种)</li>
@@ -126,6 +126,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <li>getSingleton()过程图</li>
 </ul>
 <p>ps：spring依赖注入时，使用了 双重判断加锁 的单例模式</p>
+<p><img src="C:%5CUsers%5Colive%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230818154018698.png" alt="image-20230818154018698"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">s[[singletonObjects +getBeanName&lt;&gt;]] ==&gt;</span><br><span class="line">e[[earlySingletonObjects +getBeanName&lt;&gt;]] ==&gt;</span><br><span class="line">f[[singletonFactories +getObject&lt;&gt;]] ==&gt;</span><br><span class="line">创[[创建单例实例]] ===&gt;|remove|f</span><br><span class="line">创 ==&gt;|put|e</span><br></pre></td></tr></table></figure>
 <h3 id="b-style-color-skyblue-总结：-b"><b style="color:skyblue">总结：</b></h3>
 <p><strong>单例模式定义</strong>： 保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
@@ -280,7 +281,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <hr>
 <h2 id="2-接口限流">2.接口限流</h2>
 <p>推荐成熟方案 Alibaba 的 Sentinel</p>
-<p>如果自己写？思路大致如下：</p>
+<p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
 <li>在需要进行限流的接口方法上添加自定义注解，同时还可以设置一些限流的参数，例如时间窗口值、流量大小等。</li>
@@ -310,7 +311,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <hr>
 <h2 id="5-方法权限处理">5.方法权限处理</h2>
 <p>推荐成熟方案 Spring Security</p>
-<p>如果自己写？思路大致如下：</p>
+<p>思路大致如下：</p>
 <ol>
 <li>自定义注解。</li>
 <li>在需要进行校验的方法上添加自定义注解。</li>
@@ -319,7 +320,7 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <hr>
 <h2 id="6-事务处理">6.事务处理</h2>
 <p>Spring提供注解，对于声明式事务，直接用现成的注解，本质上也是 AOP。</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 755 words, 2 min 31 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/docker/">Docker 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-18</span><a class="tag" href="/categories/Spring-AOP/" title="Spring AOP">Spring AOP </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spring-AOP/" title="Spring AOP">Spring AOP </a><span class="leancloud_visitors"></span><span>About 743 words, 2 min 28 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/docker/">Docker 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Docker学习笔记</p>
 <hr>
@@ -356,8 +357,8 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">https://hexo.io/zh-cn/</a></p>
 </blockquote>
-<p>安装之前确认好要安装的Hexo版本所对应的Node最低需求。</p>
-<p>例如 Hexo 6.3.0 最低支持 node14 构建。</p>
+<p>安装之前确认好要安装的Hexo版本所对应的Node最低需求</p>
+<p>例如 Hexo 6.3.0 最低支持 node14 构建</p>
 <!--suppress HtmlUnknownTarget -->
 <img src="/images/hexo-init-001.png" alt="image-20230817154901378" style="zoom:67%" />
 <blockquote>
@@ -365,25 +366,25 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 </blockquote>
 <hr>
 <h2 id="安装-Hexo">安装 Hexo</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="建站">建站</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;folder&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="本地运行">本地运行</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <p>访问 localhost:4000</p>
 <hr>
 <h2 id="部署">部署</h2>
 <p>部署到 GitHub Pages</p>
-<p>修改 _config.yml 替换添加如下：</p>
+<p>修改 _config.yml 替换添加如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:$username/$username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>最后执行三连。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>访问 $<a target="_blank" rel="noopener" href="http://username.github.io">username.github.io</a>。</p>
-<p>仓库名称需要设置成$username.github.io的格式。</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><span class="leancloud_visitors"></span><span>About 157 words, 31 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>访问 $<a target="_blank" rel="noopener" href="http://username.github.io">username.github.io</a></p>
+<p>仓库名称需要设置成$username.github.io的格式</p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Windows环境，生成及配置非默认、具有别名的SSH keys。</p>
 <blockquote>
@@ -392,23 +393,25 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 </blockquote>
 <hr>
 <h2 id="Generate-SSH">Generate SSH</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/<span class="comment"># cd C:\Users\olive\.ssh</span></span><br><span class="line">root@Virtual:/<span class="comment"># ssh-keygen -t ed25519 -C &quot;&lt;your github email&gt;&quot;</span></span><br><span class="line">Generating public/private ed25519 key pair.</span><br><span class="line"><span class="comment"># 自定义key</span></span><br><span class="line">Enter file <span class="keyword">in</span> <span class="built_in">which</span> to save the key (C:\Users\olive/.ssh/id_ed25519): github_olive</span><br><span class="line"><span class="comment"># 其他默认</span></span><br><span class="line">...</span><br><span class="line">root@Virtual:/<span class="comment"># dir</span></span><br><span class="line">2023/08/16  15:43               411 github_olive</span><br><span class="line">2023/08/16  15:43                98 github_olive.pub</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\olive\.ssh</span><br><span class="line">ssh-keygen -t ed25519 -C <span class="string">&quot;&lt;your github email&gt;&quot;</span></span><br><span class="line"><span class="comment"># Generating public/private ed25519 key pair.</span></span><br><span class="line"><span class="comment"># Enter file in which to save the key (C:\Users\olive/.ssh/id_ed25519): github_olive</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43               411 github_olive</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43                98 github_olive.pub</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="Github-配置-SSH-keys">Github 配置 SSH keys</h2>
 <p>Setting -&gt; SSH and GPG keys -&gt; New SSH key</p>
 <hr>
 <h2 id="本地测试是否配置成功">本地测试是否配置成功</h2>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/<span class="comment"># ssh -T git@github.com</span></span><br><span class="line">git@github.com: Permission denied (publickey).</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T <span class="string">&quot;git@github.com&quot;</span></span><br><span class="line"><span class="comment"># git@github.com: Permission denied (publickey).</span></span><br></pre></td></tr></table></figure>
 <p>具体原因看README。</p>
 <hr>
 <h2 id="配置-Config-文件">配置 Config 文件</h2>
-<p>ssh-agent &amp; ssh-add 反正我配置的这俩只在当前窗口生效，所以直接选择配置Config文件一劳永逸。</p>
+<p>ssh-agent &amp; ssh-add 我实践配置只在当前窗口生效，</p>
 <blockquote>
 <p>$ eval “$(ssh-agent -s)”<br>
 Agent pid 555<br>
 ssh-add ~/.ssh/github_olive</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/<span class="comment"># cd C:\Users\olive\.ssh</span></span><br><span class="line">root@Virtual:/<span class="comment"># dir</span></span><br><span class="line">2023/08/16  15:43                 1 config</span><br><span class="line">2023/08/16  15:43               411 github_olive</span><br><span class="line">2023/08/16  15:43                98 github_olive.pub</span><br><span class="line">root@Virtual:/<span class="comment"># vim config</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/github_olive</span><br></pre></td></tr></table></figure>
-<p>再次测试是否授权。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@Virtual:/<span class="comment"># ssh -T git@github.com</span></span><br><span class="line">Hi olive! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/SSH/" title="SSH">SSH </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Git/" title="Git">Git </a><i class="fa fa-tag"></i><a class="tag" href="/tags/SSH/" title="SSH">SSH </a><span class="leancloud_visitors"></span><span>About 304 words, 1 min 0 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
+<p>所以目前选择配置SSH Config文件</p>
+<p>config文件位置及内容如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\olive\.ssh</span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43                 1 config</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43               411 github_olive</span></span><br><span class="line"><span class="comment"># 2023/08/16  15:43                98 github_olive.pub</span></span><br><span class="line">vim config</span><br><span class="line"><span class="comment"># Host github.com</span></span><br><span class="line"><span class="comment"># HostName github.com</span></span><br><span class="line"><span class="comment"># PreferredAuthentications publickey</span></span><br><span class="line"><span class="comment"># IdentityFile ~/.ssh/github_olive</span></span><br></pre></td></tr></table></figure>
+<p>再次测试是否授权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T <span class="string">&quot;git@github.com&quot;</span></span><br><span class="line"><span class="comment"># Hi olive! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/SSH/" title="SSH">SSH </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Git/" title="Git">Git </a><i class="fa fa-tag"></i><a class="tag" href="/tags/SSH/" title="SSH">SSH </a><span class="leancloud_visitors"></span><span>About 292 words, 58 sec  read</span></div></div></div></div><div class="pagination"><ul class="clearfix"></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script>(function(window){var INSIGHT_CONFIG={TRANSLATION:{POSTS:"Posts",PAGES:"Pages",CATEGORIES:"Categories",TAGS:"Tags",UNTITLED:"(Untitled)",},CONTENT_URL:"/content.json",};window.INSIGHT_CONFIG=INSIGHT_CONFIG})(window);</script><script src="/js/insight.js" defer></script><div class="searchbox ins-search"><div class="searchbox-container ins-search-container"><div class="searchbox-input-wrapper"><input class="searchbox-input ins-search-input" type="text" placeholder="Search..."><span class="searchbox-close"><a class="fa fa-times-circle" onclick="closeWindow();"></a></span></div><div class="searchbox-result-wrapper ins-section-wrapper"><div class="ins-section-container"><p>Seraching...</p></div></div></div></div></body></html>
