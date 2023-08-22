@@ -11,81 +11,81 @@
 <table>
 <thead>
 <tr>
-<th>命令</th>
-<th>描述</th>
-<th>示例</th>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">示例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>append key value</td>
-<td>向指定的 key 的 value 后追加字符串</td>
-<td></td>
+<td style="text-align:left">append key value</td>
+<td style="text-align:left">向指定的 key 的 value 后追加字符串</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>incr / decr key</td>
-<td>将指定 key 的 value 数值进行 +1 / -1</td>
-<td></td>
+<td style="text-align:left">incr / decr key</td>
+<td style="text-align:left">将指定 key 的 value 数值进行 +1 / -1</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>incrby / decrby key n</td>
-<td>按指定的步长对数值进行加减</td>
-<td></td>
+<td style="text-align:left">incrby / decrby key n</td>
+<td style="text-align:left">按指定的步长对数值进行加减</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>incrbyfloat key n</td>
-<td>为数值加上浮点型数值</td>
-<td></td>
+<td style="text-align:left">incrbyfloat key n</td>
+<td style="text-align:left">为数值加上浮点型数值</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>strlen key</td>
-<td>获取 key 保存值的字符串长度</td>
-<td></td>
+<td style="text-align:left">strlen key</td>
+<td style="text-align:left">获取 key 保存值的字符串长度</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>getrange key start end</td>
-<td>按起止位置获取字符串</td>
-<td>getrange msg 3 9 &gt; “lo worl”</td>
+<td style="text-align:left">getrange key start end</td>
+<td style="text-align:left">按起止位置获取字符串</td>
+<td style="text-align:left">getrange msg 3 9 &gt; “lo worl”</td>
 </tr>
 <tr>
-<td>setrange key offset value</td>
-<td>用指定的 value 替换 key 中 offset 开始的值</td>
-<td>setrange msg 2 hello &gt; “hehello”</td>
+<td style="text-align:left">setrange key offset value</td>
+<td style="text-align:left">用指定的 value 替换 key 中 offset 开始的值</td>
+<td style="text-align:left">setrange msg 2 hello &gt; “hehello”</td>
 </tr>
 <tr>
-<td>getset key value</td>
-<td>将给定 key 的值设为 value 并返回 old value</td>
-<td>getset msg xxx &gt; “hello world”</td>
+<td style="text-align:left">getset key value</td>
+<td style="text-align:left">将给定 key 的值设为 value 并返回 old value</td>
+<td style="text-align:left">getset msg xxx &gt; “hello world”</td>
 </tr>
 <tr>
-<td>setnx key value</td>
-<td>仅当key不存在时进行set</td>
-<td></td>
+<td style="text-align:left">setnx key value</td>
+<td style="text-align:left">仅当key不存在时进行set</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>setex key seconds value</td>
-<td>set 键值对并设置过期时间</td>
-<td></td>
+<td style="text-align:left">setex key seconds value</td>
+<td style="text-align:left">set 键值对并设置过期时间</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>mset key1 value1 [key2 value2…]</td>
-<td>批量set键值对</td>
-<td></td>
+<td style="text-align:left">mset key1 value1 [key2 value2…]</td>
+<td style="text-align:left">批量set键值对</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>msetnx key1 value1 [key2 value2…]</td>
-<td>批量设置键值对，仅当参数中所有的key都不存在时执行</td>
-<td></td>
+<td style="text-align:left">msetnx key1 value1 [key2 value2…]</td>
+<td style="text-align:left">批量设置键值对，仅当参数中所有的key都不存在时执行</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>mget key1 [key2…]</td>
-<td>批量获取多个key保存的值</td>
-<td></td>
+<td style="text-align:left">mget key1 [key2…]</td>
+<td style="text-align:left">批量获取多个key保存的值</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td>psetex key milliseconds value</td>
-<td>set 键值对并设置毫秒过期时间</td>
-<td></td>
+<td style="text-align:left">psetex key milliseconds value</td>
+<td style="text-align:left">set 键值对并设置毫秒过期时间</td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
