@@ -313,7 +313,6 @@ a:active {
 }
 .pagination {
   margin: 30px;
-  padding: 0px 0 56px 0;
   border-bottom: 1px solid #e2e2e2;
 }
 .pagination ul {
@@ -702,6 +701,9 @@ a.btn {
     height: auto;
     max-height: max-content;
   }
+}
+.vempty {
+  display: none !important;
 }
 @-moz-keyframes fadeInDown {
   0% {
