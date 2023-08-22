@@ -1,4 +1,96 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Every</title><meta name="description" content="浮生一薤露，蜗角争是非"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/vm-ubuntu/">Windows环境VM中安装Ubuntu 23.04</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Every</title><meta name="description" content="浮生一薤露，蜗角争是非"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a class="current" href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div></div><div class="footer"><div class="p"> <span>  </span><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/22/jsoup/">Jsoup Java 爬虫</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<h2 id="README">README</h2>
+<p>本篇主要记录Jsoup学习笔记</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;https://search.jd.com/Search?keyword=java&quot;</span>;</span><br><span class="line">    <span class="type">Document</span> <span class="variable">document</span> <span class="operator">=</span> Jsoup.parse(<span class="keyword">new</span> <span class="title class_">URL</span>(url), <span class="number">3000</span>);</span><br><span class="line">    <span class="type">Element</span> <span class="variable">element</span> <span class="operator">=</span> document.getElementById(<span class="string">&quot;J_goodsList&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (element != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="type">Elements</span> <span class="variable">lis</span> <span class="operator">=</span> element.getElementsByTag(<span class="string">&quot;li&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (Element li : lis) &#123;</span><br><span class="line">            <span class="comment">//图片懒加载 取src取不到的</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">img</span> <span class="operator">=</span> li.getElementsByTag(<span class="string">&quot;img&quot;</span>).attr(<span class="string">&quot;data-lazy-img&quot;</span>);</span><br><span class="line">            System.out.println(img);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//println:</span></span><br><span class="line"><span class="comment">//img11.360buyimg.com/n7/jfs/t1/82473/36/24163/66491/64ad137eF3177ad97/d4bc56fe5f0de60b.jpg</span></span><br><span class="line"><span class="comment">//img12.360buyimg.com/n7/jfs/t1/93147/2/36396/122771/64d30740F04ca7fbb/0563559dd3991401.jpg</span></span><br><span class="line"><span class="comment">//img11.360buyimg.com/n7/jfs/t1/165807/14/35043/57871/64a65941F7c41f21c/580193f21ab25f4a.jpg</span></span><br><span class="line"><span class="comment">//img14.360buyimg.com/n7/jfs/t1/143580/7/37074/72892/64bc9332Fe4305497/28c5bc4a54950f8d.jpg</span></span><br><span class="line"><span class="comment">//img12.360buyimg.com/n7/jfs/t1/173641/3/39545/79502/64d30008Fe05efef3/49c4b51506410cd0.jpg</span></span><br><span class="line"><span class="comment">//img14.360buyimg.com/n7/jfs/t1/93147/2/36396/122771/64d30740F04ca7fbb/0563559dd3991401.jpg</span></span><br><span class="line"><span class="comment">//img14.360buyimg.com/n7/jfs/t1/4484/1l/21825/65279/6455f622F2d1b9860/d0551b7453604c15.jpg</span></span><br><span class="line"><span class="comment">//img13.360buyimg.com/n7/jfs/t1/110197/24/37538/237025/6402328eF64f34394/0118b7bfd3f661b8.jpg</span></span><br><span class="line"><span class="comment">//img13.360buyimg.com/n7/jfs/t1/123613/39/34171/61413/64bc9564F02d8e3a2/1b41a57175756482.jpg</span></span><br><span class="line"><span class="comment">//img12.360buyimg.com/n7/jfs/t1/189387/15/35208/73395/64b26ccfF370691bc/4c786d4342bfcdcd.jpg</span></span><br></pre></td></tr></table></figure>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-22</span><a class="tag" href="/categories/Spider/" title="Spider">Spider </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Spider/" title="Spider">Spider </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Jsoup/" title="Jsoup">Jsoup </a><span class="leancloud_visitors"></span><span>About 227 words, 45 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/22/redis/">Redis 笔记</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<h2 id="README">README</h2>
+<p>本篇主要记录Redis学习笔记</p>
+<hr>
+<h2 id="字符串-string">字符串 string</h2>
+<p><code>set msg &quot;hello world&quot;</code></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>append key value</td>
+<td>向指定的 key 的 value 后追加字符串</td>
+<td></td>
+</tr>
+<tr>
+<td>incr / decr key</td>
+<td>将指定 key 的 value 数值进行 +1 / -1</td>
+<td></td>
+</tr>
+<tr>
+<td>incrby / decrby key n</td>
+<td>按指定的步长对数值进行加减</td>
+<td></td>
+</tr>
+<tr>
+<td>incrbyfloat key n</td>
+<td>为数值加上浮点型数值</td>
+<td></td>
+</tr>
+<tr>
+<td>strlen key</td>
+<td>获取 key 保存值的字符串长度</td>
+<td></td>
+</tr>
+<tr>
+<td>getrange key start end</td>
+<td>按起止位置获取字符串</td>
+<td>getrange msg 3 9 &gt; “lo worl”</td>
+</tr>
+<tr>
+<td>setrange key offset value</td>
+<td>用指定的 value 替换 key 中 offset 开始的值</td>
+<td>setrange msg 2 hello &gt; “hehello”</td>
+</tr>
+<tr>
+<td>getset key value</td>
+<td>将给定 key 的值设为 value 并返回 old value</td>
+<td>getset msg xxx &gt; “hello world”</td>
+</tr>
+<tr>
+<td>setnx key value</td>
+<td>仅当key不存在时进行set</td>
+<td></td>
+</tr>
+<tr>
+<td>setex key seconds value</td>
+<td>set 键值对并设置过期时间</td>
+<td></td>
+</tr>
+<tr>
+<td>mset key1 value1 [key2 value2…]</td>
+<td>批量set键值对</td>
+<td></td>
+</tr>
+<tr>
+<td>msetnx key1 value1 [key2 value2…]</td>
+<td>批量设置键值对，仅当参数中所有的key都不存在时执行</td>
+<td></td>
+</tr>
+<tr>
+<td>mget key1 [key2…]</td>
+<td>批量获取多个key保存的值</td>
+<td></td>
+</tr>
+<tr>
+<td>psetex key milliseconds value</td>
+<td>set 键值对并设置毫秒过期时间</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-22</span><a class="tag" href="/categories/Redis/" title="Redis">Redis </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Redis/" title="Redis">Redis </a><span class="leancloud_visitors"></span><span>About 274 words, 54 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/vm-ubuntu/">Windows环境VM中安装Ubuntu 23.04</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="准备镜像">准备镜像</h2>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
