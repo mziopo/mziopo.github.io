@@ -50,11 +50,11 @@ AOP 的使用，基本上都会涉及到自定义注解，一种非常常见的�
 <h2 id="多数据源处理">多数据源处理</h2>
 <p>自定义多数据源：</p>
 <blockquote>
-<p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key<br>
+<p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key
 值来动态切换到真正的 DataSource 上。</p>
 <blockquote>
-<p>大致的用法是提前准备好各种数据源，存入到一个 Map 中，Map 的 key 就是这个数据源的名字，Map 的 value 就是这个具体的数据源，然后再把这个<br>
-Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查询的时候，拿一个 key 出来，AbstractRoutingDataSource<br>
+<p>大致的用法是提前准备好各种数据源，存入到一个 Map 中，Map 的 key 就是这个数据源的名字，Map 的 value 就是这个具体的数据源，然后再把这个
+Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查询的时候，拿一个 key 出来，AbstractRoutingDataSource
 会找到具体的数据源去执行这次数据库操作。</p>
 </blockquote>
 </blockquote>

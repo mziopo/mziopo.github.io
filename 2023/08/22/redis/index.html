@@ -1,27 +1,15 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Redis 笔记 · Every</title><meta name="description" content="README
 本篇主要记录Redis学习笔记
 
-字符串 string
-set msg &amp;quot;hello world&amp;quot;
-
-
-
-命令
-描述
-示例
-
-
-
-
-append key value
-向指定的 key 的 value 后追加字符串
-
-
-
-incr / decr key
-将指定 key"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div><details class="ltr" open><summary>Menu</summary><div class="tocmenu"><p><ol class="toclist"><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#README"><span class="toclist-number">1.</span> <span class="toclist-text">README</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-string"><span class="toclist-number">2.</span> <span class="toclist-text">字符串 string</span></a></li></ol></p></div></details></div><div class="footer"><div class="p"> <span>  </span><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Redis 笔记</a></h3></div><div class="post-content"><p><hr>
+测试性能
+阿里云单核机器每秒处理100并发接近6W请求
+123456789101112# 100个并发 100000个请求redis-benchmark -h localhost -p 6379 -c 100 -n 100000# 100000 req"><meta name="keywords"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/insight.css"><link rel="stylesheet" href="/css/search.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="page-top animated fadeInDown"><div class="nav"><li> <a href="/">Home</a></li><li> <a href="/archives">Archives</a></li><li> <a href="/tags">Tags</a></li><li> <a href="/about">About</a></li><li> <a href="/links">Links</a></li></div><div class="information"><div class="nav_right_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li><li><a class="fa fa-search" onclick="openWindow();"></a></li></div><div class="avatar"><img src="/images/avatar.png"></div></div></div><div class="sidebar animated fadeInDown"><div class="sidebar-top"><div class="logo-title"><div class="title"><img src="/images/logo.png" style="width:220px;" alt="favicon"><h3 title=""><a href="/">Every</a></h3><div class="description"><p>浮生一薤露，蜗角争是非</p></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mziopo"><i class="fa fa-github"></i></a></li></ul></div><details class="ltr" open><summary>Menu</summary><div class="tocmenu"><p><ol class="toclist"><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#README"><span class="toclist-number">1.</span> <span class="toclist-text">README</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E6%B5%8B%E8%AF%95%E6%80%A7%E8%83%BD"><span class="toclist-number">2.</span> <span class="toclist-text">测试性能</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-string"><span class="toclist-number">3.</span> <span class="toclist-text">字符串 string</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E5%88%97%E8%A1%A8-list"><span class="toclist-number">4.</span> <span class="toclist-text">列表 list</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E9%9B%86%E5%90%88-set"><span class="toclist-number">5.</span> <span class="toclist-text">集合 set</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8-hash"><span class="toclist-number">6.</span> <span class="toclist-text">哈希表 hash</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88-zset"><span class="toclist-number">7.</span> <span class="toclist-text">有序集合 zset</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE"><span class="toclist-number">8.</span> <span class="toclist-text">地理位置</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E5%9F%BA%E6%95%B0-hyperloglog"><span class="toclist-number">9.</span> <span class="toclist-text">基数 hyperloglog</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E4%BD%8D%E5%9B%BE-bitmap"><span class="toclist-number">10.</span> <span class="toclist-text">位图 bitmap</span></a></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#%E4%BA%8B%E5%8A%A1"><span class="toclist-number">11.</span> <span class="toclist-text">事务</span></a><ol class="toclist-child"><li class="toclist-item toclist-level-3"><a class="toclist-link" href="#%E4%BA%8B%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="toclist-number">11.1.</span> <span class="toclist-text">事务流程</span></a></li><li class="toclist-item toclist-level-3"><a class="toclist-link" href="#%E4%BA%8B%E5%8A%A1%E9%94%99%E8%AF%AF"><span class="toclist-number">11.2.</span> <span class="toclist-text">事务错误</span></a></li><li class="toclist-item toclist-level-3"><a class="toclist-link" href="#%E5%8A%A0%E9%94%81"><span class="toclist-number">11.3.</span> <span class="toclist-text">加锁</span></a></li></ol></li><li class="toclist-item toclist-level-2"><a class="toclist-link" href="#RDB"><span class="toclist-number">12.</span> <span class="toclist-text">RDB</span></a></li></ol></p></div></details></div><div class="footer"><div class="p"> <span>  </span><span> </span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a></div><div class="beian"></div></div></div><div class="main"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Redis 笔记</a></h3></div><div class="post-content"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Redis学习笔记</p>
+<hr>
+<h2 id="测试性能">测试性能</h2>
+<p>阿里云单核机器每秒处理100并发接近6W请求</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 100个并发 100000个请求</span></span><br><span class="line">redis-benchmark -h localhost -p 6379 -c 100 -n 100000</span><br><span class="line"><span class="comment"># 100000 requests completed in 1.68s seconds</span></span><br><span class="line"><span class="comment"># 100 parallel clients</span></span><br><span class="line"><span class="comment"># 3 bytes payload</span></span><br><span class="line"><span class="comment"># keep alive: 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 28.46% &lt;= 1 milliseconds</span></span><br><span class="line"><span class="comment"># 98.63% &lt;= 2 milliseconds</span></span><br><span class="line"><span class="comment"># 100.00% &lt;= 2 milliseconds</span></span><br><span class="line"><span class="comment"># 28.46% &lt;= 1 milliseconds</span></span><br><span class="line"><span class="comment"># 58374.34 requests per second</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="字符串-string">字符串 string</h2>
 <p><code>set msg &quot;hello world&quot;</code></p>
@@ -107,7 +95,451 @@ incr / decr key
 </tbody>
 </table>
 <hr>
-</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-22</span><a class="tag" href="/categories/Redis/" title="Redis">Redis </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Redis/" title="Redis">Redis </a><span class="leancloud_visitors"></span><span>About 274 words, 54 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><!--.weibo--><!--  a.fa.fa-weibo(href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&title=',e(d.title),'&appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));")--><!--.twitter--><!--  a.fa.fa-twitter(href=url_for("http://twitter.com/home?status="+","+config.url+"/"+page.path+","+config.title+","+page.title+",;"))--><!-- - var prev = page.prev ? page.prev.path : false;--><!-- - var next = page.next ? page.next.path : false;--></div><div class="pagination"><!--ul.clearfix//if prev
+<h2 id="列表-list">列表 list</h2>
+<p>按照插入顺序排序</p>
+<p>最大的成员数为 2^32 - 1，4294967295，40多亿</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">lpush / rpush key value…</td>
+<td style="text-align:left">从 头 / 尾 向 list 中 push 值，返回结果列表 length</td>
+</tr>
+<tr>
+<td style="text-align:left">lrange key start end</td>
+<td style="text-align:left">获取列表 起 止 元素</td>
+</tr>
+<tr>
+<td style="text-align:left">lpushx / rpushx key  value…</td>
+<td style="text-align:left">向已存在的列表中 push 值</td>
+</tr>
+<tr>
+<td style="text-align:left">linsert key before / after pivot value</td>
+<td style="text-align:left">在指定列表元素的 前 / 后 insert 值</td>
+</tr>
+<tr>
+<td style="text-align:left">llen key</td>
+<td style="text-align:left">查看列表长度</td>
+</tr>
+<tr>
+<td style="text-align:left">lindex key index</td>
+<td style="text-align:left">通过索引获取列表元素</td>
+</tr>
+<tr>
+<td style="text-align:left">lset key index value</td>
+<td style="text-align:left">通过索引为元素设值</td>
+</tr>
+<tr>
+<td style="text-align:left">lpop / rpop key</td>
+<td style="text-align:left">从 头 / 尾 移除值并返回</td>
+</tr>
+<tr>
+<td style="text-align:left">rpoplpush source destination</td>
+<td style="text-align:left">将列表的尾部值弹出并返回，然后加到另一个列表的头部</td>
+</tr>
+<tr>
+<td style="text-align:left">ltrim key start end</td>
+<td style="text-align:left">通过下标截取指定范围内的列表</td>
+</tr>
+<tr>
+<td style="text-align:left">lrem key count value</td>
+<td style="text-align:left"><code>count &gt; 0</code>：从头开始搜索，删除指定值，至多删除count个 <br /><code>count &lt; 0</code>：从尾开始搜索，删除指定值，至多删除count个 <br /><code>count = 0</code>：删除列表中所有指定值。</td>
+</tr>
+<tr>
+<td style="text-align:left">blpop / brpop list… timeout</td>
+<td style="text-align:left">移出并获取列表的 头 / 尾 ， 如果列表没有元素会阻塞列表直到超时或发现可弹出元素</td>
+</tr>
+<tr>
+<td style="text-align:left">brpoplpush source destination timeout</td>
+<td style="text-align:left">将列表的尾部值并返回，然后加到另一个列表的头部<br />如果列表没有元素会阻塞列表直到超时或发现可弹出元素</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="集合-set">集合 set</h2>
+<p>是 string 的无序集合，集合成员是唯一的</p>
+<p>是通过哈希表实现的，添加、删除、查找复杂度都是O(1)</p>
+<p>最大的成员数为 2^32 - 1，4294967295，40多亿</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sadd key value…</td>
+<td style="text-align:left">向集合中无序添加成员</td>
+</tr>
+<tr>
+<td style="text-align:left">scard key</td>
+<td style="text-align:left">获取集合的成员数</td>
+</tr>
+<tr>
+<td style="text-align:left">smembers key</td>
+<td style="text-align:left">返回集合中所有的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">srandmember key [count]</td>
+<td style="text-align:left">随机返回集合中count个成员，count缺省值为1</td>
+</tr>
+<tr>
+<td style="text-align:left">spop key [count]</td>
+<td style="text-align:left">随机移除并返回集合中count个成员，count缺省值为1</td>
+</tr>
+<tr>
+<td style="text-align:left">smove source destination value</td>
+<td style="text-align:left">将源集合的成员移动到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">srem key value…</td>
+<td style="text-align:left">移除集合中的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">sdiff key key…</td>
+<td style="text-align:left">获取第一个集合中独有的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">sdiffstore destination key key…</td>
+<td style="text-align:left">获取第一个集合中独有的元素保存覆盖到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">sinter key…</td>
+<td style="text-align:left">返回所有集合的交集</td>
+</tr>
+<tr>
+<td style="text-align:left">sinterstore destination key key…</td>
+<td style="text-align:left">返回所有集合的交集保存覆盖到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">sunion key key…</td>
+<td style="text-align:left">返回所有集合的并集</td>
+</tr>
+<tr>
+<td style="text-align:left">sunionstore destination key key…</td>
+<td style="text-align:left">返回所有集合的并集保存覆盖到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">sscan key [MATCH pattern] [COUNT count]</td>
+<td style="text-align:left">遍历集合中元素</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="哈希表-hash">哈希表 hash</h2>
+<p><code>key - Map&lt;field,value&gt;</code></p>
+<p>是一个 string 类型的 field 和 value 的映射表</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">hset key field value</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hmset key [field value]…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hsetnx key field value</td>
+<td style="text-align:left">当 field 不存在时，设置值</td>
+</tr>
+<tr>
+<td style="text-align:left">hexists key field</td>
+<td style="text-align:left">查看哈希表中指定的字段是否存在</td>
+</tr>
+<tr>
+<td style="text-align:left">hget key field value</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hmget key field…</td>
+<td style="text-align:left">获取所有给定字段的值</td>
+</tr>
+<tr>
+<td style="text-align:left">hgetall key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hkeys key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hlen key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hvals key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hdel key field…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hincrby key field n</td>
+<td style="text-align:left">为指定字段的整数值加n，并返回增量后结果</td>
+</tr>
+<tr>
+<td style="text-align:left">hincrbyfloat key field n</td>
+<td style="text-align:left">为指定字段的浮点值加n，并返回增量后结果</td>
+</tr>
+<tr>
+<td style="text-align:left">hscan key cursor [MATCH pattern] [COUNT count]</td>
+<td style="text-align:left">遍历</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="有序集合-zset">有序集合 zset</h2>
+<p>每个成员关联一个double类型的分数，通过分数来为集合中的成员进行默认正序排序。</p>
+<p>分数相同情况按字典顺序排序</p>
+<p>有序集合的成员是唯一的，但score可以重复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">zadd key [source value]</td>
+<td style="text-align:left">集合添加一个或多个成员，或者更新已存在成员分数</td>
+</tr>
+<tr>
+<td style="text-align:left">zcard key</td>
+<td style="text-align:left">获取集合的成员数</td>
+</tr>
+<tr>
+<td style="text-align:left">zcount key min max</td>
+<td style="text-align:left">计算集合中指定分数区间的成员数</td>
+</tr>
+<tr>
+<td style="text-align:left">zincrby key n value</td>
+<td style="text-align:left">集合中对指定成员的分数加上n</td>
+</tr>
+<tr>
+<td style="text-align:left">zscore key value</td>
+<td style="text-align:left">返回集合中指定成员的分数</td>
+</tr>
+<tr>
+<td style="text-align:left">zrank key value</td>
+<td style="text-align:left">返回集合中指定成员的索引</td>
+</tr>
+<tr>
+<td style="text-align:left">zrange key start end</td>
+<td style="text-align:left">通过索引区间返回集合成指定区间内的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zrangelbylex key start end</td>
+<td style="text-align:left">通过字典区间返回集合的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zrangebyscore key start end</td>
+<td style="text-align:left">通过分数区间返回集合的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zlexcount key start end</td>
+<td style="text-align:left">计算集合中指定字典区间内成员数量</td>
+</tr>
+<tr>
+<td style="text-align:left">zrem key value…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">zremrangebylex key start end</td>
+<td style="text-align:left">移除集合中给定的字典区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zremrangebyrank key start end</td>
+<td style="text-align:left">移除集合中给定的排名区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zremrangebyscore key start end</td>
+<td style="text-align:left">移除集合中给定的分数区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrange key start end</td>
+<td style="text-align:left">返回集合中指定索引区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrangebyscore key start end</td>
+<td style="text-align:left">返回集合中指定分数区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrangebylex key start end</td>
+<td style="text-align:left">返回集合中指定字典区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrank key value</td>
+<td style="text-align:left">返回集合中指定分数区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zinterstore destination numkeys key…</td>
+<td style="text-align:left">计算给定的一个或多个有序集的交集，其中给定 key 的数量必须以 numkeys 参数指定，并将该交集(结果集)储存到 destination</td>
+</tr>
+<tr>
+<td style="text-align:left">zunionstore destination numkeys key…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">zscan key cursor [MATCH pattern] [COUNT count]</td>
+<td style="text-align:left">遍历</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="地理位置">地理位置</h2>
+<p>使用经纬度定位地理坐标并用一个<strong>有序集合zset保存</strong></p>
+<ul>
+<li>
+<p><strong>m</strong> 表示单位为米。</p>
+</li>
+<li>
+<p><strong>km</strong> 表示单位为千米。</p>
+</li>
+<li>
+<p><strong>mi</strong> 表示单位为英里。</p>
+</li>
+<li>
+<p><strong>ft</strong> 表示单位为英尺。</p>
+</li>
+<li>
+<p><strong>withcoord</strong>：带上坐标</p>
+</li>
+<li>
+<p><strong>withdist</strong>：带上距离，单位与半径单位相同</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>geoadd key [longitude latitude member]…</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geopos key member…</td>
+<td>获取成员</td>
+</tr>
+<tr>
+<td>geodist key member1 member2 unit</td>
+<td>返回两个给定位置之间的距离，默认米</td>
+</tr>
+<tr>
+<td>georadius key longitude latitude radius unit [WITHCOORD] [WITHDIST]  [COUNT count] [ASC|DESC] [STORE key] [STOREDIST key]</td>
+<td>以给定的经纬度为中心， 返回集合包含的位置元素当中， 与中心的距离不超过给定最大距离的所有成员</td>
+</tr>
+<tr>
+<td>georadiusbymember key member radius</td>
+<td>功能与GEORADIUS相同，只是中心位置不是具体的经纬度，而是使用结合中已有的成员作为中心点</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="基数-hyperloglog">基数 hyperloglog</h2>
+<p><code>HyperLogLog</code> 是用来做基数统计的算法，<code>HyperLogLog</code>在输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定的、并且是很小的。</p>
+<p>花费 12 KB 内存，就可以计算接近 2^64 个不同元素的基数。</p>
+<p>因为 <code>HyperLogLog</code>只会根据输入元素来计算基数，而不会储存输入元素本身，所以 <code>HyperLogLog</code> 不能像集合那样，返回输入的各个元素。</p>
+<p>其底层使用string数据类型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">pfadd key element…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">pfcount key…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">pfmerge destkey sourcekey…</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="位图-bitmap">位图 bitmap</h2>
+<p>使用位存储，信息状态只有 0 和 1。</p>
+<p><code>Bitmap</code>是一串连续的2进制数字（0或1），每一位所在的位置为偏移(offset)，在bitmap上可执行AND,OR,XOR,NOT以及其它位操作。</p>
+<p>其底层使用string数据类型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">setbit key offset value</td>
+<td style="text-align:left">为指定key的offset位设置 0 / 1</td>
+</tr>
+<tr>
+<td style="text-align:left">getbit key offset</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">bitcount key [start end]</td>
+<td style="text-align:left">统计字符串被设置为1的bit数</td>
+</tr>
+<tr>
+<td style="text-align:left">bitop operration destkey key…</td>
+<td style="text-align:left">对一个或多个保存二进制位的字符串 key 进行位元操作，并将结果保存到 destkey 上</td>
+</tr>
+<tr>
+<td style="text-align:left">bitpos key bit [start] [end]</td>
+<td style="text-align:left">返回字符串里面第一个被设置为1或者0的bit位，start和end只能按字节，不能按位</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="事务">事务</h2>
+<p><code>Redis</code> 事务不保证原子性</p>
+<h3 id="事务流程">事务流程</h3>
+<ul>
+<li>开启事务（<code>multi</code>）</li>
+<li>命令入队</li>
+<li>执行事务（<code>exec</code>）</li>
+<li>取消事务 (<code>discurd</code>)</li>
+</ul>
+<h3 id="事务错误">事务错误</h3>
+<p>代码语法错误（编译时异常）所有的命令都不执行</p>
+<p>代码逻辑错误（运行时异常）其他命令可以正常执行</p>
+<h3 id="加锁">加锁</h3>
+<p>乐观锁</p>
+<ul>
+<li>
+<p>加锁 <code>watch key</code></p>
+</li>
+<li>
+<p>解锁 <code>unwatch key</code></p>
+</li>
+</ul>
+<p>监控到数据不一致 <code>exec</code> 执行会失败</p>
+<hr>
+<h2 id="RDB">RDB</h2>
+<p>todo</p>
+</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-22</span><a class="tag" href="/categories/Redis/" title="Redis">Redis </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Redis/" title="Redis">Redis </a><span class="leancloud_visitors"></span><span>About 2284 words, 7 min 36 sec  read</span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><!--.weibo--><!--  a.fa.fa-weibo(href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&title=',e(d.title),'&appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));")--><!--.twitter--><!--  a.fa.fa-twitter(href=url_for("http://twitter.com/home?status="+","+config.url+"/"+page.path+","+config.title+","+page.title+",;"))--><!-- - var prev = page.prev ? page.prev.path : false;--><!-- - var next = page.next ? page.next.path : false;--></div><div class="pagination"><!--ul.clearfix//if prev
 //  li.pre.pagbuttons
 //    a.btn(role="navigation",href=url_for(prev), title=page.prev.title)!= __('prev_post')
 //if next

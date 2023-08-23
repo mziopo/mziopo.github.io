@@ -6,6 +6,10 @@
 <h2 id="README">README</h2>
 <p>本篇主要记录Redis学习笔记</p>
 <hr>
+<h2 id="测试性能">测试性能</h2>
+<p>阿里云单核机器每秒处理100并发接近6W请求</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 100个并发 100000个请求</span></span><br><span class="line">redis-benchmark -h localhost -p 6379 -c 100 -n 100000</span><br><span class="line"><span class="comment"># 100000 requests completed in 1.68s seconds</span></span><br><span class="line"><span class="comment"># 100 parallel clients</span></span><br><span class="line"><span class="comment"># 3 bytes payload</span></span><br><span class="line"><span class="comment"># keep alive: 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 28.46% &lt;= 1 milliseconds</span></span><br><span class="line"><span class="comment"># 98.63% &lt;= 2 milliseconds</span></span><br><span class="line"><span class="comment"># 100.00% &lt;= 2 milliseconds</span></span><br><span class="line"><span class="comment"># 28.46% &lt;= 1 milliseconds</span></span><br><span class="line"><span class="comment"># 58374.34 requests per second</span></span><br></pre></td></tr></table></figure>
+<hr>
 <h2 id="字符串-string">字符串 string</h2>
 <p><code>set msg &quot;hello world&quot;</code></p>
 <table>
@@ -90,7 +94,451 @@
 </tbody>
 </table>
 <hr>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-22</span><a class="tag" href="/categories/Redis/" title="Redis">Redis </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Redis/" title="Redis">Redis </a><span class="leancloud_visitors"></span><span>About 274 words, 54 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/vm-ubuntu/">Windows环境VM中安装Ubuntu 23.04</a></h3></div><div class="post-content"><div class="card"><p><hr>
+<h2 id="列表-list">列表 list</h2>
+<p>按照插入顺序排序</p>
+<p>最大的成员数为 2^32 - 1，4294967295，40多亿</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">lpush / rpush key value…</td>
+<td style="text-align:left">从 头 / 尾 向 list 中 push 值，返回结果列表 length</td>
+</tr>
+<tr>
+<td style="text-align:left">lrange key start end</td>
+<td style="text-align:left">获取列表 起 止 元素</td>
+</tr>
+<tr>
+<td style="text-align:left">lpushx / rpushx key  value…</td>
+<td style="text-align:left">向已存在的列表中 push 值</td>
+</tr>
+<tr>
+<td style="text-align:left">linsert key before / after pivot value</td>
+<td style="text-align:left">在指定列表元素的 前 / 后 insert 值</td>
+</tr>
+<tr>
+<td style="text-align:left">llen key</td>
+<td style="text-align:left">查看列表长度</td>
+</tr>
+<tr>
+<td style="text-align:left">lindex key index</td>
+<td style="text-align:left">通过索引获取列表元素</td>
+</tr>
+<tr>
+<td style="text-align:left">lset key index value</td>
+<td style="text-align:left">通过索引为元素设值</td>
+</tr>
+<tr>
+<td style="text-align:left">lpop / rpop key</td>
+<td style="text-align:left">从 头 / 尾 移除值并返回</td>
+</tr>
+<tr>
+<td style="text-align:left">rpoplpush source destination</td>
+<td style="text-align:left">将列表的尾部值弹出并返回，然后加到另一个列表的头部</td>
+</tr>
+<tr>
+<td style="text-align:left">ltrim key start end</td>
+<td style="text-align:left">通过下标截取指定范围内的列表</td>
+</tr>
+<tr>
+<td style="text-align:left">lrem key count value</td>
+<td style="text-align:left"><code>count &gt; 0</code>：从头开始搜索，删除指定值，至多删除count个 <br /><code>count &lt; 0</code>：从尾开始搜索，删除指定值，至多删除count个 <br /><code>count = 0</code>：删除列表中所有指定值。</td>
+</tr>
+<tr>
+<td style="text-align:left">blpop / brpop list… timeout</td>
+<td style="text-align:left">移出并获取列表的 头 / 尾 ， 如果列表没有元素会阻塞列表直到超时或发现可弹出元素</td>
+</tr>
+<tr>
+<td style="text-align:left">brpoplpush source destination timeout</td>
+<td style="text-align:left">将列表的尾部值并返回，然后加到另一个列表的头部<br />如果列表没有元素会阻塞列表直到超时或发现可弹出元素</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="集合-set">集合 set</h2>
+<p>是 string 的无序集合，集合成员是唯一的</p>
+<p>是通过哈希表实现的，添加、删除、查找复杂度都是O(1)</p>
+<p>最大的成员数为 2^32 - 1，4294967295，40多亿</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">sadd key value…</td>
+<td style="text-align:left">向集合中无序添加成员</td>
+</tr>
+<tr>
+<td style="text-align:left">scard key</td>
+<td style="text-align:left">获取集合的成员数</td>
+</tr>
+<tr>
+<td style="text-align:left">smembers key</td>
+<td style="text-align:left">返回集合中所有的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">srandmember key [count]</td>
+<td style="text-align:left">随机返回集合中count个成员，count缺省值为1</td>
+</tr>
+<tr>
+<td style="text-align:left">spop key [count]</td>
+<td style="text-align:left">随机移除并返回集合中count个成员，count缺省值为1</td>
+</tr>
+<tr>
+<td style="text-align:left">smove source destination value</td>
+<td style="text-align:left">将源集合的成员移动到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">srem key value…</td>
+<td style="text-align:left">移除集合中的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">sdiff key key…</td>
+<td style="text-align:left">获取第一个集合中独有的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">sdiffstore destination key key…</td>
+<td style="text-align:left">获取第一个集合中独有的元素保存覆盖到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">sinter key…</td>
+<td style="text-align:left">返回所有集合的交集</td>
+</tr>
+<tr>
+<td style="text-align:left">sinterstore destination key key…</td>
+<td style="text-align:left">返回所有集合的交集保存覆盖到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">sunion key key…</td>
+<td style="text-align:left">返回所有集合的并集</td>
+</tr>
+<tr>
+<td style="text-align:left">sunionstore destination key key…</td>
+<td style="text-align:left">返回所有集合的并集保存覆盖到目标集合</td>
+</tr>
+<tr>
+<td style="text-align:left">sscan key [MATCH pattern] [COUNT count]</td>
+<td style="text-align:left">遍历集合中元素</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="哈希表-hash">哈希表 hash</h2>
+<p><code>key - Map&lt;field,value&gt;</code></p>
+<p>是一个 string 类型的 field 和 value 的映射表</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">hset key field value</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hmset key [field value]…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hsetnx key field value</td>
+<td style="text-align:left">当 field 不存在时，设置值</td>
+</tr>
+<tr>
+<td style="text-align:left">hexists key field</td>
+<td style="text-align:left">查看哈希表中指定的字段是否存在</td>
+</tr>
+<tr>
+<td style="text-align:left">hget key field value</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hmget key field…</td>
+<td style="text-align:left">获取所有给定字段的值</td>
+</tr>
+<tr>
+<td style="text-align:left">hgetall key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hkeys key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hlen key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hvals key</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hdel key field…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">hincrby key field n</td>
+<td style="text-align:left">为指定字段的整数值加n，并返回增量后结果</td>
+</tr>
+<tr>
+<td style="text-align:left">hincrbyfloat key field n</td>
+<td style="text-align:left">为指定字段的浮点值加n，并返回增量后结果</td>
+</tr>
+<tr>
+<td style="text-align:left">hscan key cursor [MATCH pattern] [COUNT count]</td>
+<td style="text-align:left">遍历</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="有序集合-zset">有序集合 zset</h2>
+<p>每个成员关联一个double类型的分数，通过分数来为集合中的成员进行默认正序排序。</p>
+<p>分数相同情况按字典顺序排序</p>
+<p>有序集合的成员是唯一的，但score可以重复。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">zadd key [source value]</td>
+<td style="text-align:left">集合添加一个或多个成员，或者更新已存在成员分数</td>
+</tr>
+<tr>
+<td style="text-align:left">zcard key</td>
+<td style="text-align:left">获取集合的成员数</td>
+</tr>
+<tr>
+<td style="text-align:left">zcount key min max</td>
+<td style="text-align:left">计算集合中指定分数区间的成员数</td>
+</tr>
+<tr>
+<td style="text-align:left">zincrby key n value</td>
+<td style="text-align:left">集合中对指定成员的分数加上n</td>
+</tr>
+<tr>
+<td style="text-align:left">zscore key value</td>
+<td style="text-align:left">返回集合中指定成员的分数</td>
+</tr>
+<tr>
+<td style="text-align:left">zrank key value</td>
+<td style="text-align:left">返回集合中指定成员的索引</td>
+</tr>
+<tr>
+<td style="text-align:left">zrange key start end</td>
+<td style="text-align:left">通过索引区间返回集合成指定区间内的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zrangelbylex key start end</td>
+<td style="text-align:left">通过字典区间返回集合的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zrangebyscore key start end</td>
+<td style="text-align:left">通过分数区间返回集合的成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zlexcount key start end</td>
+<td style="text-align:left">计算集合中指定字典区间内成员数量</td>
+</tr>
+<tr>
+<td style="text-align:left">zrem key value…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">zremrangebylex key start end</td>
+<td style="text-align:left">移除集合中给定的字典区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zremrangebyrank key start end</td>
+<td style="text-align:left">移除集合中给定的排名区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zremrangebyscore key start end</td>
+<td style="text-align:left">移除集合中给定的分数区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrange key start end</td>
+<td style="text-align:left">返回集合中指定索引区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrangebyscore key start end</td>
+<td style="text-align:left">返回集合中指定分数区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrangebylex key start end</td>
+<td style="text-align:left">返回集合中指定字典区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zrevrank key value</td>
+<td style="text-align:left">返回集合中指定分数区间内的成员，倒序排序</td>
+</tr>
+<tr>
+<td style="text-align:left">zinterstore destination numkeys key…</td>
+<td style="text-align:left">计算给定的一个或多个有序集的交集，其中给定 key 的数量必须以 numkeys 参数指定，并将该交集(结果集)储存到 destination</td>
+</tr>
+<tr>
+<td style="text-align:left">zunionstore destination numkeys key…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">zscan key cursor [MATCH pattern] [COUNT count]</td>
+<td style="text-align:left">遍历</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="地理位置">地理位置</h2>
+<p>使用经纬度定位地理坐标并用一个<strong>有序集合zset保存</strong></p>
+<ul>
+<li>
+<p><strong>m</strong> 表示单位为米。</p>
+</li>
+<li>
+<p><strong>km</strong> 表示单位为千米。</p>
+</li>
+<li>
+<p><strong>mi</strong> 表示单位为英里。</p>
+</li>
+<li>
+<p><strong>ft</strong> 表示单位为英尺。</p>
+</li>
+<li>
+<p><strong>withcoord</strong>：带上坐标</p>
+</li>
+<li>
+<p><strong>withdist</strong>：带上距离，单位与半径单位相同</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>geoadd key [longitude latitude member]…</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>geopos key member…</td>
+<td>获取成员</td>
+</tr>
+<tr>
+<td>geodist key member1 member2 unit</td>
+<td>返回两个给定位置之间的距离，默认米</td>
+</tr>
+<tr>
+<td>georadius key longitude latitude radius unit [WITHCOORD] [WITHDIST]  [COUNT count] [ASC|DESC] [STORE key] [STOREDIST key]</td>
+<td>以给定的经纬度为中心， 返回集合包含的位置元素当中， 与中心的距离不超过给定最大距离的所有成员</td>
+</tr>
+<tr>
+<td>georadiusbymember key member radius</td>
+<td>功能与GEORADIUS相同，只是中心位置不是具体的经纬度，而是使用结合中已有的成员作为中心点</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="基数-hyperloglog">基数 hyperloglog</h2>
+<p><code>HyperLogLog</code> 是用来做基数统计的算法，<code>HyperLogLog</code>在输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定的、并且是很小的。</p>
+<p>花费 12 KB 内存，就可以计算接近 2^64 个不同元素的基数。</p>
+<p>因为 <code>HyperLogLog</code>只会根据输入元素来计算基数，而不会储存输入元素本身，所以 <code>HyperLogLog</code> 不能像集合那样，返回输入的各个元素。</p>
+<p>其底层使用string数据类型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">pfadd key element…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">pfcount key…</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">pfmerge destkey sourcekey…</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="位图-bitmap">位图 bitmap</h2>
+<p>使用位存储，信息状态只有 0 和 1。</p>
+<p><code>Bitmap</code>是一串连续的2进制数字（0或1），每一位所在的位置为偏移(offset)，在bitmap上可执行AND,OR,XOR,NOT以及其它位操作。</p>
+<p>其底层使用string数据类型</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">setbit key offset value</td>
+<td style="text-align:left">为指定key的offset位设置 0 / 1</td>
+</tr>
+<tr>
+<td style="text-align:left">getbit key offset</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">bitcount key [start end]</td>
+<td style="text-align:left">统计字符串被设置为1的bit数</td>
+</tr>
+<tr>
+<td style="text-align:left">bitop operration destkey key…</td>
+<td style="text-align:left">对一个或多个保存二进制位的字符串 key 进行位元操作，并将结果保存到 destkey 上</td>
+</tr>
+<tr>
+<td style="text-align:left">bitpos key bit [start] [end]</td>
+<td style="text-align:left">返回字符串里面第一个被设置为1或者0的bit位，start和end只能按字节，不能按位</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="事务">事务</h2>
+<p><code>Redis</code> 事务不保证原子性</p>
+<h3 id="事务流程">事务流程</h3>
+<ul>
+<li>开启事务（<code>multi</code>）</li>
+<li>命令入队</li>
+<li>执行事务（<code>exec</code>）</li>
+<li>取消事务 (<code>discurd</code>)</li>
+</ul>
+<h3 id="事务错误">事务错误</h3>
+<p>代码语法错误（编译时异常）所有的命令都不执行</p>
+<p>代码逻辑错误（运行时异常）其他命令可以正常执行</p>
+<h3 id="加锁">加锁</h3>
+<p>乐观锁</p>
+<ul>
+<li>
+<p>加锁 <code>watch key</code></p>
+</li>
+<li>
+<p>解锁 <code>unwatch key</code></p>
+</li>
+</ul>
+<p>监控到数据不一致 <code>exec</code> 执行会失败</p>
+<hr>
+<h2 id="RDB">RDB</h2>
+<p>todo</p>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-22</span><a class="tag" href="/categories/Redis/" title="Redis">Redis </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Redis/" title="Redis">Redis </a><span class="leancloud_visitors"></span><span>About 2284 words, 7 min 36 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/18/vm-ubuntu/">Windows环境VM中安装Ubuntu 23.04</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="准备镜像">准备镜像</h2>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn/</a></p>
@@ -163,7 +611,7 @@
 <ul>
 <li>读取bean的xml配置文件,将bean元素分别转换成一个BeanDefinition对象。</li>
 <li>然后通过BeanDefinitionRegistry将这些bean注册到beanFactory中，保存在它的一个ConcurrentHashMap中。</li>
-<li>将BeanDefinition注册到了beanFactory之后，在这里Spring为我们提供了一个扩展的切口，允许我们通过实现接口BeanFactoryPostProcessor<br>
+<li>将BeanDefinition注册到了beanFactory之后，在这里Spring为我们提供了一个扩展的切口，允许我们通过实现接口BeanFactoryPostProcessor
 在此处来插入我们定义的代码。典型的例子就是：PropertyPlaceholderConfigurer，我们一般在配置数据库的dataSource时使用到的占位符的值，就是它注入进去的。</li>
 </ul>
 <p><strong>容器中bean的实例化阶段</strong>：</p>
@@ -175,23 +623,23 @@
 <li><strong>DisposableBean接口</strong> ，实现了BeanPostProcessor接口的bean，在该bean死亡时Spring会帮我们调用接口中的方法。</li>
 </ul>
 <h3 id="b-style-color-skyblue-设计意义：-b"><b style="color:skyblue">设计意义：</b></h3>
-<p><strong>松耦合。</strong><br>
+<p><strong>松耦合。</strong>
 可以将原来硬编码的依赖，通过Spring这个beanFactory这个工厂来注入依赖，也就是说原来只有依赖方和被依赖方，现在我们引入了第三方——spring这个beanFactory，由它来解决bean之间的依赖问题，达到了松耦合的效果.</p>
-<p><strong>bean的额外处理。</strong><br>
+<p><strong>bean的额外处理。</strong>
 通过Spring接口的暴露，在实例化bean的阶段我们可以进行一些额外的处理，这些额外的处理只需要让bean实现对应的接口即可，那么spring就会在bean的生命周期调用我们实现的接口来处理该bean。[非常重要]</p>
 <hr>
 <h2 id="工厂方法">工厂方法</h2>
 <h3 id="b-style-color-skyblue-实现方式：-b-2"><b style="color:skyblue">实现方式：</b></h3>
 <p>FactoryBean接口。</p>
 <h3 id="b-style-color-skyblue-实现原理：-b-2"><b style="color:skyblue">实现原理：</b></h3>
-<p>实现了FactoryBean接口的bean是一类叫做factory的bean。其特点是，spring会在使用getBean()<br>
+<p>实现了FactoryBean接口的bean是一类叫做factory的bean。其特点是，spring会在使用getBean()
 调用获得该bean时，会自动调用该bean的getObject()方法，所以返回的不是factory这个bean，而是这个bean.getOjbect()方法的返回值。</p>
 <h3 id="b-style-color-skyblue-例子：-b"><b style="color:skyblue">例子：</b></h3>
 <p>典型的例子有spring与mybatis的结合。</p>
 <p><strong>代码示例</strong>：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;sqlSessionFactory&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;configLocation&quot;</span> <span class="attr">value</span>=<span class="string">&quot;classpath:config/mybatis-config-masterxml&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;mapperLocations&quot;</span> <span class="attr">value</span>=<span class="string">&quot;classpath:config/mappers/master/*/xml&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>说明</strong>：</p>
-<p>我们看上面该bean，因为实现了FactoryBean接口，所以返回的不是 SqlSessionFactoryBean 的实例，而是它的<br>
+<p>我们看上面该bean，因为实现了FactoryBean接口，所以返回的不是 SqlSessionFactoryBean 的实例，而是它的
 SqlSessionFactoryBean.getObject() 的返回值。</p>
 <hr>
 <h2 id="单例模式">单例模式</h2>
@@ -287,10 +735,10 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <li><strong>isOpen()</strong>： 返回资源文件是否打开，如果资源文件不能多次读取，每次读取结束应该显式关闭，以防止资源泄漏。</li>
 <li><strong>getDescription()</strong>： 返回资源的描述信息，通常用于资源处理出错时输出该信息，通常是全限定文件名或实际 URL。</li>
 <li><strong>getFile</strong>： 返回资源对应的 File 对象。</li>
-<li><strong>getURL</strong>： 返回资源对应的 URL 对象。<br>
+<li><strong>getURL</strong>： 返回资源对应的 URL 对象。
 最后两个方法通常无须使用，仅在通过简单方式访问无法实现时，Resource 提供传统的资源访问的功能。</li>
 </ul>
-<p>Resource 接口本身没有提供访问任何底层资源的实现逻辑，<strong>针对不同的底层资源，Spring 将会提供不同的 Resource<br>
+<p>Resource 接口本身没有提供访问任何底层资源的实现逻辑，<strong>针对不同的底层资源，Spring 将会提供不同的 Resource
 实现类，不同的实现类负责不同的资源访问逻辑。</strong></p>
 <p>Spring 为 Resource 接口提供了如下实现类：</p>
 <ul>
@@ -299,7 +747,7 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <li><strong>FileSystemResource</strong>： 访问文件系统里资源的实现类。</li>
 <li><strong>ServletContextResource</strong>： 访问相对于 ServletContext 路径里的资源的实现类.</li>
 <li><strong>InputStreamResource</strong>： 访问输入流资源的实现类。</li>
-<li><strong>ByteArrayResource</strong>： 访问字节数组资源的实现类。<br>
+<li><strong>ByteArrayResource</strong>： 访问字节数组资源的实现类。
 这些 Resource 实现类，针对不同的的底层资源，提供了相应的资源访问逻辑，并提供便捷的包装，以利于客户端程序的资源访问。</li>
 </ul>
 <hr>
@@ -310,8 +758,8 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <p><strong>所以父类模板方法中有两类方法</strong>：</p>
 <p><strong>共同的方法</strong>： 所有子类都会用到的代码</p>
 <p><strong>不同的方法</strong>： 子类要覆盖的方法，分为两种：</p>
-<p>抽象方法：父类中的是抽象方法，子类必须覆盖<br>
-钩子方法：父类中是一个空方法，子类继承了默认也是空的<br>
+<p>抽象方法：父类中的是抽象方法，子类必须覆盖
+钩子方法：父类中是一个空方法，子类继承了默认也是空的
 注：为什么叫钩子，子类可以通过这个钩子（方法），控制父类，因为这个钩子实际是父类的方法（空方法）！</p>
 <h3 id="b-style-color-skyblue-Spring模板方法模式实质：-b"><b style="color:skyblue">Spring模板方法模式实质：</b></h3>
 <p>是模板方法模式和回调模式的结合，是Template Method不需要继承的另一种实现方式。Spring几乎所有的外接扩展都采用这种模式。</p>
@@ -372,11 +820,11 @@ SqlSessionFactoryBean.getObject() 的返回值。</p>
 <h2 id="多数据源处理">多数据源处理</h2>
 <p>自定义多数据源：</p>
 <blockquote>
-<p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key<br>
+<p>从 Spring2.0.1 中引入了 AbstractRoutingDataSource 类，该类充当了 DataSource 的路由中介，它能够在运行时, 根据某种 key
 值来动态切换到真正的 DataSource 上。</p>
 <blockquote>
-<p>大致的用法是提前准备好各种数据源，存入到一个 Map 中，Map 的 key 就是这个数据源的名字，Map 的 value 就是这个具体的数据源，然后再把这个<br>
-Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查询的时候，拿一个 key 出来，AbstractRoutingDataSource<br>
+<p>大致的用法是提前准备好各种数据源，存入到一个 Map 中，Map 的 key 就是这个数据源的名字，Map 的 value 就是这个具体的数据源，然后再把这个
+Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查询的时候，拿一个 key 出来，AbstractRoutingDataSource
 会找到具体的数据源去执行这次数据库操作。</p>
 </blockquote>
 </blockquote>
@@ -524,9 +972,9 @@ Map 配置到 AbstractRoutingDataSource 中，之后，每次执行数据库查�
 <hr>
 <h3 id="Raft协议">Raft协议</h3>
 <p>Raft协议：保证大多数节点存活才可用</p>
-<p>三个管理器的集群最多可以容忍一个节点的丢失。<br>
-五个管理器的集群可以容忍最大同时丢失两个节点。<br>
-N个管理器集群最多可以容忍丢失(N-1)/2个节点。<br>
+<p>三个管理器的集群最多可以容忍一个节点的丢失。
+五个管理器的集群可以容忍最大同时丢失两个节点。
+N个管理器集群最多可以容忍丢失(N-1)/2个节点。
 Docker 建议一个集群有七个节点。</p>
 <hr>
 <h3 id="创建服务">创建服务</h3>
@@ -568,7 +1016,7 @@ Docker 建议一个集群有七个节点。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 <p>访问 <code>$username.github.io</code></p>
 <p>仓库名称需要设置成 <code>$username.github.io</code> 的格式</p>
-</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
+</p></div></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2023-08-16</span><a class="tag" href="/categories/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/Hexo/" title="Hexo">Hexo </a><i class="fa fa-tag"></i><a class="tag" href="/tags/GitHub/" title="GitHub">GitHub </a><span class="leancloud_visitors"></span><span>About 148 words, 29 sec  read</span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2023/08/16/github-ssh/">Windows 生成及配置 GitHub SSH</a></h3></div><div class="post-content"><div class="card"><p><hr>
 <h2 id="README">README</h2>
 <p>本篇主要记录Windows环境，生成及配置非默认、具有别名的SSH keys。</p>
 <blockquote>
@@ -589,8 +1037,8 @@ Docker 建议一个集群有七个节点。</p>
 <h2 id="配置-Config-文件">配置 Config 文件</h2>
 <p><code>ssh-agent &amp; ssh-add</code> 我实践配置只在当前窗口生效，</p>
 <blockquote>
-<p>$ eval “$(ssh-agent -s)”<br>
-Agent pid 555<br>
+<p>$ eval “$(ssh-agent -s)”
+Agent pid 555
 ssh-add ~/.ssh/github_olive</p>
 </blockquote>
 <p>所以目前选择配置 SSH Config 文件</p>
